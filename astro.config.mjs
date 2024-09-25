@@ -10,4 +10,7 @@ export default defineConfig({
   })],
   site: 'https://ingsystemcix.github.io',
   base: '/DevDocs/',
+  build: {
+    format: 'directory', // Usar directorios en lugar de archivos .html
+  },
 });
