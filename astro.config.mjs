@@ -8,6 +8,6 @@ export default defineConfig({
   integrations: [tailwind({
       applyBaseStyles: true,
   })],
-  site: 'https://ingsystemcix.github.io',
+  site: 'ingsystemcix.github.io',
   base: '/DevDocs/',
 });
