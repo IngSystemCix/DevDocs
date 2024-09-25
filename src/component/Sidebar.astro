@@ -1,0 +1,68 @@
+---
+
+const listButton = [
+  {
+    name: 'Thymeleaf',
+    icon: '/DevDocs/ico/thymeleaf.svg',
+    href: '/DevDocs/thymeleaf.html'
+  },
+  {
+    name: 'Spring Boot',
+    icon: '/DevDocs/ico/spring-boot.svg',
+    href: '/DevDocs/spring-boot.html'
+  },
+  {
+    name: 'React',
+    icon: '/DevDocs/ico/react.svg',
+    href: '/DevDocs/react.html'
+  },
+  {
+    name: 'Angular',
+    icon: '/DevDocs/ico/angular.svg',
+    href: '/DevDocs/angular.html'
+  },
+  {
+    name: 'Astro',
+    icon: '/DevDocs/ico/astro.svg',
+    href: '/DevDocs/astro.html'
+  },
+  {
+    name: 'Bootstrap',
+    icon: '/DevDocs/ico/bootstrap.svg',
+    href: '/DevDocs/bootstrap.html'
+  },
+  {
+    name: 'Tailwind CSS',
+    icon: '/DevDocs/ico/tailwindcss.svg',
+    href: '/DevDocs/tailwindcss.html'
+  },
+  {
+    name: 'Sass',
+    icon: '/DevDocs/ico/sass.svg',
+    href: '/DevDocs/sass.html'
+  },
+  {
+    name: 'TypeScript',
+    icon: '/DevDocs/ico/typescript.svg',
+    href: '/DevDocs/typescript.html'
+  }
+]
+
+---
+
+<aside id="logo-sidebar" class="fixed top-0 left-0 z-40 w-64 h-screen pt-20 transition-transform -translate-x-full bg-white border-r border-gray-200 sm:translate-x-0 dark:bg-gray-800 dark:border-gray-700" aria-label="Sidebar">
+  <div class="h-full px-3 pb-4 overflow-y-auto bg-white dark:bg-gray-800">
+     <ul class="space-y-2 font-medium">
+        {
+          listButton.map((button) => (
+            <li>
+              <a href={button.href} class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                <img src={button.icon} alt={`${button.name} icon`} class="w-5 h-5" />
+                <span class="ms-3">{ button.name }</span>
+              </a>
+            </li>
+          ))
+        }
+     </ul>
+  </div>
+</aside>

@@ -1,0 +1,23 @@
+---
+
+const { title } = Astro.props as { title : string};
+
+---
+
+<!DOCTYPE html>
+<html lang="es" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="DevDocs is a comprehensive documentation platform for developers, offering guides and references on programming languages, preprocessors, frameworks, and modern tools. With a clean and organized interface, it provides quick access to essential information for project development, from writing code to optimizing styles and templates.">
+  <meta name="keywords" content="devdocs, documentation, developer, programming, languages, preprocessors, frameworks, tools, guides, references, code, styles, templates, project, development">
+  <meta name="author" content="IngSystemCix">
+  <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.css" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.js"></script>
+  <link rel="shortcut icon" href="/DevDocs/favicon.svg" type="image/svg-xhtml">
+  <title>{ title }</title>
+</head>
+<body class="w-full h-screen bg-slate-950">
+  <slot/>
+</body>
+</html>

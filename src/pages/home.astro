@@ -1,0 +1,71 @@
+---
+import Layout from "../layout/Layout.astro";
+import Navbar from "../component/Navbar.astro";
+import Sidebar from "../component/Sidebar.astro";
+import Slider from "../component/Slider.astro";
+---
+
+<Layout title="DevDocs :: Home">
+  <Navbar />
+  <Sidebar />
+  <div class="px-10 py-24 sm:ml-64">
+    <Slider />
+    <br />
+    <h1 class="text-4xl font-bold text-gray-900 dark:text-white">
+      Bienvenido a DevDocs
+    </h1>
+    <h2 class="mt-2 text-2xl font-semibold text-gray-800 dark:text-gray-300">
+      Tu recurso confiable para la documentación de desarrollo
+    </h2>
+    <p class="mt-4 text-lg text-gray-500 dark:text-gray-400">
+      DevDocs es una plataforma de documentación completa para desarrolladores,
+      que ofrece guías y referencias sobre lenguajes de programación,
+      preprocesadores, frameworks y herramientas modernas. Con una interfaz
+      limpia y organizada, proporciona un acceso rápido a información esencial
+      para el desarrollo de proyectos, desde la escritura de código hasta la
+      optimización de estilos y plantillas.
+    </p>
+
+    <div class="mt-8">
+      <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
+        Recursos Populares:
+      </h3>
+      <ul class="list-disc list-inside mt-2 text-gray-500 dark:text-gray-400">
+        <li>
+          <a href="#" class="text-blue-600 hover:underline"
+            >Lenguajes de Programación</a>
+        </li>
+        <li>
+          <a href="#" class="text-blue-600 hover:underline">Frameworks</a>
+        </li>
+        <li>
+          <a href="#" class="text-blue-600 hover:underline"
+            >Preprocesadores de Plantillas</a>
+        </li>
+        <li>
+          <a href="#" class="text-blue-600 hover:underline"
+            >Preprocesadores de Estilo</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="mt-8 p-4 border-l-4 border-blue-600 bg-slate-700">
+      <p class="italic text-gray-600 dark:text-gray-300">
+        “La documentación es clave para el desarrollo efectivo. DevDocs lo hace
+        fácil y accesible.”
+      </p>
+      <p class="mt-2 font-bold text-gray-900 dark:text-white">
+        — Usuario Satisfecho
+      </p>
+    </div>
+
+    <div class="mt-8 text-center">
+      <p class="text-xl font-bold text-gray-900 dark:text-white">
+        Más de 500 guías disponibles
+      </p>
+      <p class="text-gray-500 dark:text-gray-400">
+        Únete a miles de desarrolladores que utilizan DevDocs a diario.
+      </p>
+    </div>
+  </div>
+</Layout>
