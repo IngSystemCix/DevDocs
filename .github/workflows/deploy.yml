@@ -1,13 +1,11 @@
 name: Deploy to GitHub Pages
 
 on:
-  # Trigger the workflow every time you push to the `main` branch
   push:
-    branches: [ main ]
-  # Allows you to run this workflow manually from the Actions tab on GitHub.
-  workflow_dispatch:
+    branches: [main] # Cambia 'main' si usas otra rama
+  workflow_dispatch: # Permite ejecutar manualmente el flujo de trabajo desde la pestaña de Actions
 
-# Allow this job to clone the repo and create a page deployment
+# Permisos necesarios para el flujo de trabajo
 permissions:
   contents: read
   pages: write
@@ -19,19 +17,20 @@ jobs:
     steps:
       - name: Checkout your repository using git
         uses: actions/checkout@v4
+      
       - name: Install, build, and upload your site
         uses: withastro/action@v3
         with:
-          path: . # The root location of your Astro project inside the repository.
-          node-version: 20 # The version of Node.js to use for building your site.
-          package-manager: pnpm@latest # The Node package manager for dependency installation.
+          path: . # Ubicación raíz de tu proyecto Astro dentro del repositorio (opcional)
+          node-version: 20 # La versión específica de Node que se debe usar para construir tu sitio
+          package-manager: pnpm@latest # El gestor de paquetes que se usará para instalar dependencias y construir tu sitio
 
   deploy:
-    needs: build
+    needs: build # Este trabajo depende del trabajo de construcción
     runs-on: ubuntu-latest
     environment:
       name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+      url: ${{ steps.deployment.outputs.page_url }} # URL de la página desplegada
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
