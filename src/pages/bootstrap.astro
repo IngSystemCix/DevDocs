@@ -2,12 +2,108 @@
 import Layout from "../layout/Layout.astro";
 import Navbar from "../component/Navbar.astro";
 import Sidebar from "../component/Sidebar.astro";
+import Breadcrumb from "../component/Breadcrumb.astro";
+import Accordion from "../component/Accordion.astro";
+
+const temarioBootstrap = [
+  {
+    title: "Introducción a Bootstrap",
+    content: [
+      { name: "¿Qué es Bootstrap?", link: "#" },
+      { name: "Características principales", link: "#" },
+      { name: "Instalación y configuración", link: "#" },
+      { name: "Ecosistema de Bootstrap", link: "#" }
+    ],
+  },
+  {
+    title: "Sistema de Diseño de Bootstrap",
+    content: [
+      { name: "Grid system", link: "#" },
+      { name: "Contenedores y filas", link: "#" },
+      { name: "Columnas y anchos", link: "#" },
+      { name: "Responsive design con Bootstrap", link: "#" }
+    ],
+  },
+  {
+    title: "Componentes de Bootstrap",
+    content: [
+      { name: "Botones", link: "#" },
+      { name: "Alertas", link: "#" },
+      { name: "Tarjetas", link: "#" },
+      { name: "Modales", link: "#" },
+      { name: "Navbars", link: "#" }
+    ],
+  },
+  {
+    title: "Utilidades de Bootstrap",
+    content: [
+      { name: "Espaciado", link: "#" },
+      { name: "Colores", link: "#" },
+      { name: "Texto", link: "#" },
+      { name: "Visibilidad", link: "#" },
+      { name: "Flexbox", link: "#" }
+    ],
+  },
+  {
+    title: "JavaScript de Bootstrap",
+    content: [
+      { name: "Uso de JavaScript en Bootstrap", link: "#" },
+      { name: "Componentes interactivos", link: "#" },
+      { name: "Manejo de eventos", link: "#" },
+      { name: "Dependencias de jQuery", link: "#" }
+    ],
+  },
+  {
+    title: "Formularios en Bootstrap",
+    content: [
+      { name: "Creación de formularios", link: "#" },
+      { name: "Validación de formularios", link: "#" },
+      { name: "Elementos de formulario (inputs, selects, etc.)", link: "#" }
+    ],
+  },
+  {
+    title: "Personalización de Bootstrap",
+    content: [
+      { name: "Variables y temas", link: "#" },
+      { name: "Creación de un tema personalizado", link: "#" },
+      { name: "Uso de SASS con Bootstrap", link: "#" }
+    ],
+  },
+  {
+    title: "Accesibilidad en Bootstrap",
+    content: [
+      { name: "Buenas prácticas de accesibilidad", link: "#" },
+      { name: "Uso de roles y atributos ARIA", link: "#" },
+      { name: "Compatibilidad con lectores de pantalla", link: "#" }
+    ],
+  },
+  {
+    title: "Despliegue y Uso de Bootstrap",
+    content: [
+      { name: "Preparación para el despliegue", link: "#" },
+      { name: "Uso de Bootstrap en diferentes plataformas", link: "#" },
+      { name: "Manejo de dependencias y CDN", link: "#" }
+    ],
+  },
+  {
+    title: "Buenas Prácticas y Optimización",
+    content: [
+      { name: "Mejores prácticas en el desarrollo con Bootstrap", link: "#" },
+      { name: "Optimización del rendimiento", link: "#" },
+      { name: "Manejo de errores y debugging", link: "#" }
+    ],
+  }
+];
+
 ---
 
 <Layout title="DevDocs :: Bootstrap">
   <Navbar />
   <Sidebar />
   <div class="px-10 py-24 sm:ml-64">
-    
+    <Breadcrumb links={[{ href: "/DevDocs/home", label: "Home" }, { label: "Bootstrap", current: true }]} />
+    <br>
+    <br>
+    <Accordion temario={temarioBootstrap} />
   </div>
 </Layout>

@@ -2,12 +2,105 @@
 import Layout from "../layout/Layout.astro";
 import Navbar from "../component/Navbar.astro";
 import Sidebar from "../component/Sidebar.astro";
+import Breadcrumb from "../component/Breadcrumb.astro";
+import Accordion from "../component/Accordion.astro";
+
+const temarioReact = [
+  {
+    title: "Introducción a React",
+    content: [
+      { name: "¿Qué es React?", link: "#" },
+      { name: "Características principales", link: "#" },
+      { name: "Creación de una aplicación React", link: "#" },
+      { name: "Ecosistema de React (React Router, Redux, etc.)", link: "#" }
+    ],
+  },
+  {
+    title: "Componentes en React",
+    content: [
+      { name: "Componentes funcionales vs. componentes de clase", link: "#" },
+      { name: "Props y State", link: "#" },
+      { name: "Ciclo de vida de un componente", link: "#" },
+      { name: "Hooks (useState, useEffect, etc.)", link: "#" }
+    ],
+  },
+  {
+    title: "Manejo de Eventos",
+    content: [
+      { name: "Manejo de eventos en React", link: "#" },
+      { name: "Eventos sintéticos", link: "#" },
+      { name: "Manejo de formularios", link: "#" }
+    ],
+  },
+  {
+    title: "Ruteo en React",
+    content: [
+      { name: "Introducción a React Router", link: "#" },
+      { name: "Definición de rutas", link: "#" },
+      { name: "Parámetros de ruta y navegación", link: "#" },
+      { name: "Rutas anidadas y protección de rutas", link: "#" }
+    ],
+  },
+  {
+    title: "Estado Global",
+    content: [
+      { name: "Introducción a Redux", link: "#" },
+      { name: "Configuración de Redux en una aplicación React", link: "#" },
+      { name: "Acciones, Reducers y Store", link: "#" },
+      { name: "Middleware en Redux (thunk, saga)", link: "#" }
+    ],
+  },
+  {
+    title: "Estilización en React",
+    content: [
+      { name: "CSS en JS (Styled Components, Emotion)", link: "#" },
+      { name: "Uso de CSS Modules", link: "#" },
+      { name: "Frameworks CSS (Bootstrap, Tailwind CSS)", link: "#" }
+    ],
+  },
+  {
+    title: "Manejo de Efectos y Estado Asincrónico",
+    content: [
+      { name: "Uso de useEffect para efectos secundarios", link: "#" },
+      { name: "Manejo de promesas y peticiones HTTP", link: "#" },
+      { name: "Librerías para manejar el estado asincrónico (React Query, SWR)", link: "#" }
+    ],
+  },
+  {
+    title: "Pruebas en React",
+    content: [
+      { name: "Introducción a las pruebas en React", link: "#" },
+      { name: "Testing con Jest y React Testing Library", link: "#" },
+      { name: "Pruebas unitarias y de integración", link: "#" }
+    ],
+  },
+  {
+    title: "Despliegue de Aplicaciones React",
+    content: [
+      { name: "Preparación para el despliegue", link: "#" },
+      { name: "Despliegue en plataformas (Vercel, Netlify)", link: "#" },
+      { name: "Despliegue en servidores tradicionales", link: "#" }
+    ],
+  },
+  {
+    title: "Buenas Prácticas y Optimización",
+    content: [
+      { name: "Mejores prácticas en el desarrollo de aplicaciones React", link: "#" },
+      { name: "Optimización del rendimiento en React", link: "#" },
+      { name: "Manejo de errores y logging", link: "#" }
+    ],
+  }
+];
+
 ---
 
 <Layout title="DevDocs :: React">
   <Navbar />
   <Sidebar />
   <div class="px-10 py-24 sm:ml-64">
-    
+    <Breadcrumb links={[{ href: "/DevDocs/home", label: "Home" }, { label: "React", current: true }]} />
+    <br>
+    <br>
+    <Accordion temario={temarioReact} />
   </div>
 </Layout>

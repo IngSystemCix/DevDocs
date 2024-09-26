@@ -2,12 +2,132 @@
 import Layout from "../layout/Layout.astro";
 import Navbar from "../component/Navbar.astro";
 import Sidebar from "../component/Sidebar.astro";
+import Breadcrumb from "../component/Breadcrumb.astro";
+import Accordion from "../component/Accordion.astro";
+
+const temarioThymeleaf = [
+  {
+    title: "Introducción a Thymeleaf",
+    content: [
+      { name: "¿Qué es Thymeleaf?", link: "#" },
+      { name: "Características principales", link: "#" },
+      { name: "Integración con Spring Framework", link: "#" },
+      { name: "Ventajas frente a otros motores de plantillas (JSP, FreeMarker)", link: "#" }
+    ],
+  },
+  {
+    title: "Sintaxis Básica de Thymeleaf",
+    content: [
+      { name: "Plantillas Thymeleaf", link: "#" },
+      { name: "Atributos especiales: th:text, th:href, th:src, etc.", link: "#" },
+      { name: "Comentarios Thymeleaf", link: "#" },
+      { name: "Expresiones Thymeleaf (${}, #{} y @{})", link: "#" }
+    ],
+  },
+  {
+    title: "Manejo de Datos Dinámicos",
+    content: [
+      { name: "Contexto del modelo en Spring y Thymeleaf", link: "#" },
+      { name: "Mostrar datos dinámicos con th:text y th:utext", link: "#" },
+      { name: "Enlace de datos con th:href, th:src, th:action", link: "#" },
+      { name: "Formateo de números y fechas", link: "#" }
+    ],
+  },
+  {
+    title: "Control de Flujo en Thymeleaf",
+    content: [
+      { name: "Condicionales: th:if, th:unless", link: "#" },
+      { name: "Bucle de iteración: th:each", link: "#" },
+      { name: "Uso de expresiones th:switch y th:case", link: "#" }
+    ],
+  },
+  {
+    title: "Formularios en Thymeleaf",
+    content: [
+      { name: "Creación de formularios HTML", link: "#" },
+      { name: "Enlace de formularios con el modelo (th:object)", link: "#" },
+      { name: "Elementos de formulario: th:field para inputs, select, etc.", link: "#" },
+      { name: "Validación de formularios y mensajes de error", link: "#" }
+    ],
+  },
+  {
+    title: "Fragmentos en Thymeleaf (Thymeleaf Layouts)",
+    content: [
+      { name: "Creación y uso de fragmentos reutilizables: th:fragment", link: "#" },
+      { name: "Inclusión de fragmentos con th:replace y th:insert", link: "#" },
+      { name: "Templates anidados (Layouts)", link: "#" }
+    ],
+  },
+  {
+    title: "Internacionalización (i18n)",
+    content: [
+      { name: "Soporte de internacionalización en Thymeleaf", link: "#" },
+      { name: "Uso de #{}", link: "#" },
+      { name: "Archivos de mensajes", link: "#" }
+    ],
+  },
+  {
+    title: "Manejo de Plantillas y Plantillas HTML5",
+    content: [
+      { name: "Compatibilidad de Thymeleaf con plantillas HTML5", link: "#" },
+      { name: "Creación de plantillas responsivas", link: "#" },
+      { name: "Soporte de CSS y JavaScript en Thymeleaf (th:src, th:href)", link: "#" }
+    ],
+  },
+  {
+    title: "Manejo de Errores y Mensajes",
+    content: [
+      { name: "Mensajes de error en formularios", link: "#" },
+      { name: "Mostrar mensajes personalizados con th:if", link: "#" }
+    ],
+  },
+  {
+    title: "Integración con CSS y JavaScript",
+    content: [
+      { name: "Cómo enlazar archivos CSS y JS en Thymeleaf", link: "#" },
+      { name: "Uso de Thymeleaf con bibliotecas de frontend como Bootstrap", link: "#" },
+      { name: "Thymeleaf y scripts JavaScript dinámicos", link: "#" }
+    ],
+  },
+  {
+    title: "Thymeleaf con AJAX",
+    content: [
+      { name: "Cómo usar AJAX con Thymeleaf", link: "#" },
+      { name: "Actualización parcial de vistas", link: "#" }
+    ],
+  },
+  {
+    title: "Seguridad en Thymeleaf",
+    content: [
+      { name: "Integración con Spring Security", link: "#" },
+      { name: "Uso de sec:authorize para manejo de roles y accesos", link: "#" }
+    ],
+  },
+  {
+    title: "Pruebas con Thymeleaf",
+    content: [
+      { name: "Cómo probar las vistas generadas con Thymeleaf", link: "#" },
+      { name: "Herramientas para la depuración", link: "#" }
+    ],
+  },
+  {
+    title: "Buenas Prácticas y Optimización",
+    content: [
+      { name: "Mejores prácticas en el diseño de plantillas Thymeleaf", link: "#" },
+      { name: "Optimización del rendimiento de las vistas", link: "#" }
+    ],
+  }
+];
+
 ---
 
 <Layout title="DevDocs :: Thymeleaf">
   <Navbar />
   <Sidebar />
   <div class="px-10 py-24 sm:ml-64">
-    
+    <Breadcrumb links={[{ href: "/DevDocs/home", label: "Home" }, { label: "Thymeleaf", current: true }]} />
+    <br>
+    <br>
+    <Accordion temario={temarioThymeleaf} />
   </div>
 </Layout>

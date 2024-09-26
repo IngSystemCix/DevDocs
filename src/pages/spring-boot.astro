@@ -2,12 +2,105 @@
 import Layout from "../layout/Layout.astro";
 import Navbar from "../component/Navbar.astro";
 import Sidebar from "../component/Sidebar.astro";
+import Breadcrumb from "../component/Breadcrumb.astro";
+import Accordion from "../component/Accordion.astro";
+
+const temarioSpringBoot = [
+  {
+    title: "Introducción a Spring Boot",
+    content: [
+      { name: "¿Qué es Spring Boot?", link: "#" },
+      { name: "Características principales", link: "#" },
+      { name: "Diferencias entre Spring y Spring Boot", link: "#" },
+      { name: "Configuración inicial de un proyecto", link: "#" }
+    ],
+  },
+  {
+    title: "Configuración de un Proyecto Spring Boot",
+    content: [
+      { name: "Estructura del proyecto", link: "#" },
+      { name: "Archivo `application.properties` y `application.yml`", link: "#" },
+      { name: "Configuración de perfiles", link: "#" }
+    ],
+  },
+  {
+    title: "Desarrollo de APIs REST",
+    content: [
+      { name: "Creación de controladores REST", link: "#" },
+      { name: "Uso de anotaciones @RestController y @RequestMapping", link: "#" },
+      { name: "Manejo de respuestas y excepciones", link: "#" },
+      { name: "Serialización y deserialización con Jackson", link: "#" }
+    ],
+  },
+  {
+    title: "Persistencia de Datos",
+    content: [
+      { name: "Introducción a JPA y Hibernate", link: "#" },
+      { name: "Configuración de la conexión a la base de datos", link: "#" },
+      { name: "Creación de entidades y repositorios", link: "#" },
+      { name: "Consultas personalizadas y JPQL", link: "#" }
+    ],
+  },
+  {
+    title: "Seguridad en Spring Boot",
+    content: [
+      { name: "Introducción a Spring Security", link: "#" },
+      { name: "Configuración de la seguridad básica", link: "#" },
+      { name: "Autenticación y autorización", link: "#" },
+      { name: "Protección de rutas con roles", link: "#" }
+    ],
+  },
+  {
+    title: "Manejo de Errores y Excepciones",
+    content: [
+      { name: "Manejo global de excepciones con @ControllerAdvice", link: "#" },
+      { name: "Mensajes de error personalizados", link: "#" },
+      { name: "Errores en la validación de formularios", link: "#" }
+    ],
+  },
+  {
+    title: "Testing en Spring Boot",
+    content: [
+      { name: "Introducción a las pruebas en Spring Boot", link: "#" },
+      { name: "Pruebas unitarias con JUnit y Mockito", link: "#" },
+      { name: "Pruebas de integración", link: "#" }
+    ],
+  },
+  {
+    title: "Despliegue de Aplicaciones",
+    content: [
+      { name: "Despliegue en servidores tradicionales", link: "#" },
+      { name: "Uso de contenedores Docker", link: "#" },
+      { name: "Despliegue en la nube (AWS, Heroku, etc.)", link: "#" }
+    ],
+  },
+  {
+    title: "Monitoreo y Gestión de Aplicaciones",
+    content: [
+      { name: "Actuadores de Spring Boot", link: "#" },
+      { name: "Métricas y seguimiento de aplicaciones", link: "#" },
+      { name: "Integración con herramientas de monitoreo", link: "#" }
+    ],
+  },
+  {
+    title: "Buenas Prácticas y Patrones de Diseño",
+    content: [
+      { name: "Patrones de diseño comunes en Spring Boot", link: "#" },
+      { name: "Mejores prácticas en el desarrollo de aplicaciones", link: "#" },
+      { name: "Optimización del rendimiento", link: "#" }
+    ],
+  }
+];
+
 ---
 
 <Layout title="DevDocs :: Spring Boot">
   <Navbar />
   <Sidebar />
   <div class="px-10 py-24 sm:ml-64">
-    
+    <Breadcrumb links={[{ href: "/DevDocs/home", label: "Home" }, { label: "Spring Boot", current: true }]} />
+    <br>
+    <br>
+    <Accordion temario={temarioSpringBoot} />
   </div>
 </Layout>

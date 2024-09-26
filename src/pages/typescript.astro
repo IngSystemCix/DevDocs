@@ -2,12 +2,104 @@
 import Layout from "../layout/Layout.astro";
 import Navbar from "../component/Navbar.astro";
 import Sidebar from "../component/Sidebar.astro";
+import Breadcrumb from "../component/Breadcrumb.astro";
+import Accordion from "../component/Accordion.astro";
+
+const temarioTypeScript = [
+  {
+    title: "Introducción a TypeScript",
+    content: [
+      { name: "¿Qué es TypeScript?", link: "#" },
+      { name: "Características principales", link: "#" },
+      { name: "Ventajas de TypeScript sobre JavaScript", link: "#" },
+      { name: "Instalación y configuración", link: "#" }
+    ],
+  },
+  {
+    title: "Tipos de Datos en TypeScript",
+    content: [
+      { name: "Tipos primitivos", link: "#" },
+      { name: "Tipos compuestos: Arrays y Tuplas", link: "#" },
+      { name: "Enumeraciones", link: "#" },
+      { name: "Tipos personalizados e Interfaces", link: "#" }
+    ],
+  },
+  {
+    title: "Funciones en TypeScript",
+    content: [
+      { name: "Definición de funciones", link: "#" },
+      { name: "Tipos de retorno y parámetros", link: "#" },
+      { name: "Funciones anónimas y flecha", link: "#" }
+    ],
+  },
+  {
+    title: "Clases y Objetos",
+    content: [
+      { name: "Definición de clases", link: "#" },
+      { name: "Propiedades y métodos", link: "#" },
+      { name: "Herencia y polimorfismo", link: "#" },
+      { name: "Modificadores de acceso: public, private, protected", link: "#" }
+    ],
+  },
+  {
+    title: "Módulos en TypeScript",
+    content: [
+      { name: "Importación y exportación de módulos", link: "#" },
+      { name: "Namespaces", link: "#" },
+      { name: "Uso de módulos en proyectos grandes", link: "#" }
+    ],
+  },
+  {
+    title: "Tipos Avanzados",
+    content: [
+      { name: "Uniones y intersecciones", link: "#" },
+      { name: "Tipos condicionales", link: "#" },
+      { name: "Tipos genéricos", link: "#" }
+    ],
+  },
+  {
+    title: "Integración con JavaScript",
+    content: [
+      { name: "Uso de bibliotecas JavaScript en TypeScript", link: "#" },
+      { name: "Definición de tipos para bibliotecas externas", link: "#" },
+      { name: "Uso de JSDoc en TypeScript", link: "#" }
+    ],
+  },
+  {
+    title: "Configuración del Compilador TypeScript",
+    content: [
+      { name: "Archivo `tsconfig.json`", link: "#" },
+      { name: "Opciones de configuración", link: "#" },
+      { name: "Compilación y salida de archivos", link: "#" }
+    ],
+  },
+  {
+    title: "Pruebas y Depuración",
+    content: [
+      { name: "Pruebas unitarias en TypeScript", link: "#" },
+      { name: "Herramientas de depuración", link: "#" },
+      { name: "Integración con frameworks de pruebas como Jest", link: "#" }
+    ],
+  },
+  {
+    title: "Recursos Adicionales",
+    content: [
+      { name: "Documentación oficial de TypeScript", link: "https://www.typescriptlang.org/docs/" },
+      { name: "Ejemplos y tutoriales", link: "#" },
+      { name: "Comunidad y foros", link: "#" }
+    ],
+  }
+];
+
 ---
 
 <Layout title="DevDocs :: Typescript">
   <Navbar />
   <Sidebar />
   <div class="px-10 py-24 sm:ml-64">
-    
+    <Breadcrumb links={[{ href: "/DevDocs/home", label: "Home" }, { label: "Typescript", current: true }]} />
+    <br>
+    <br>
+    <Accordion temario={temarioTypeScript} />
   </div>
 </Layout>

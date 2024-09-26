@@ -2,12 +2,112 @@
 import Layout from "../layout/Layout.astro";
 import Navbar from "../component/Navbar.astro";
 import Sidebar from "../component/Sidebar.astro";
+import Breadcrumb from "../component/Breadcrumb.astro";
+import Accordion from "../component/Accordion.astro";
+
+const temarioAstro = [
+  {
+    title: "Introducción a Astro",
+    content: [
+      { name: "¿Qué es Astro?", link: "#" },
+      { name: "Características principales", link: "#" },
+      { name: "Comparación con otros frameworks (React, Vue, etc.)", link: "#" },
+      { name: "Instalación y configuración inicial", link: "#" }
+    ],
+  },
+  {
+    title: "Estructura de un Proyecto Astro",
+    content: [
+      { name: "Arquitectura de carpetas", link: "#" },
+      { name: "Archivos de configuración", link: "#" },
+      { name: "Uso de componentes", link: "#" },
+      { name: "Markdown y archivos .md", link: "#" }
+    ],
+  },
+  {
+    title: "Componentes en Astro",
+    content: [
+      { name: "Creación de componentes", link: "#" },
+      { name: "Componentes de servidor vs. componentes de cliente", link: "#" },
+      { name: "Props y estado en componentes", link: "#" },
+      { name: "Uso de componentes de otros frameworks (React, Vue, etc.)", link: "#" }
+    ],
+  },
+  {
+    title: "Ruteo en Astro",
+    content: [
+      { name: "Configuración de rutas", link: "#" },
+      { name: "Rutas dinámicas", link: "#" },
+      { name: "Manejo de parámetros de ruta", link: "#" }
+    ],
+  },
+  {
+    title: "Renderizado y Generación de Páginas",
+    content: [
+      { name: "Renderizado estático vs. renderizado dinámico", link: "#" },
+      { name: "Uso de `getStaticPaths` y `getStaticProps`", link: "#" },
+      { name: "Optimización de carga de páginas", link: "#" }
+    ],
+  },
+  {
+    title: "Estilización en Astro",
+    content: [
+      { name: "Uso de CSS y SASS", link: "#" },
+      { name: "Frameworks CSS (Tailwind, Bootstrap)", link: "#" },
+      { name: "CSS Modules", link: "#" }
+    ],
+  },
+  {
+    title: "Integración con APIs",
+    content: [
+      { name: "Consumo de APIs REST", link: "#" },
+      { name: "Manejo de datos en componentes", link: "#" },
+      { name: "Uso de fetch y axios", link: "#" }
+    ],
+  },
+  {
+    title: "Internacionalización (i18n)",
+    content: [
+      { name: "Soporte de internacionalización en Astro", link: "#" },
+      { name: "Configuración de idiomas y traducciones", link: "#" },
+      { name: "Uso de bibliotecas de i18n (i18next, react-i18next)", link: "#" }
+    ],
+  },
+  {
+    title: "Despliegue de Aplicaciones Astro",
+    content: [
+      { name: "Preparación para el despliegue", link: "#" },
+      { name: "Despliegue en plataformas (Vercel, Netlify)", link: "#" },
+      { name: "Configuración de servidores", link: "#" }
+    ],
+  },
+  {
+    title: "Pruebas en Astro",
+    content: [
+      { name: "Introducción a las pruebas en Astro", link: "#" },
+      { name: "Pruebas unitarias y de integración", link: "#" },
+      { name: "Herramientas de pruebas (Jest, Testing Library)", link: "#" }
+    ],
+  },
+  {
+    title: "Buenas Prácticas y Optimización",
+    content: [
+      { name: "Mejores prácticas en el desarrollo de aplicaciones Astro", link: "#" },
+      { name: "Optimización del rendimiento", link: "#" },
+      { name: "Manejo de errores y logging", link: "#" }
+    ],
+  }
+];
+
 ---
 
 <Layout title="DevDocs :: Astro">
   <Navbar />
   <Sidebar />
   <div class="px-10 py-24 sm:ml-64">
-    
+    <Breadcrumb links={[{ href: "/DevDocs/home", label: "Home" }, { label: "Astro", current: true }]} />
+    <br>
+    <br>
+    <Accordion temario={temarioAstro} />
   </div>
 </Layout>

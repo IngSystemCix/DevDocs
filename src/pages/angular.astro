@@ -2,6 +2,111 @@
 import Layout from "../layout/Layout.astro";
 import Navbar from "../component/Navbar.astro";
 import Sidebar from "../component/Sidebar.astro";
+import Breadcrumb from "../component/Breadcrumb.astro";
+import Accordion from "../component/Accordion.astro";
+
+const temarioAngular = [
+  {
+    title: "Introducción a Angular",
+    content: [
+      { name: "¿Qué es Angular?", link: "#" },
+      { name: "Características principales", link: "#" },
+      { name: "Arquitectura de Angular", link: "#" },
+      { name: "Creación de una aplicación Angular", link: "#" }
+    ],
+  },
+  {
+    title: "Componentes en Angular",
+    content: [
+      { name: "Creación de componentes", link: "#" },
+      { name: "Decoradores de componentes", link: "#" },
+      { name: "Comunicación entre componentes", link: "#" },
+      { name: "Uso de inputs y outputs", link: "#" }
+    ],
+  },
+  {
+    title: "Módulos en Angular",
+    content: [
+      { name: "Estructura de módulos", link: "#" },
+      { name: "Módulos de características y módulos compartidos", link: "#" },
+      { name: "Lazy loading de módulos", link: "#" }
+    ],
+  },
+  {
+    title: "Plantillas y Directivas",
+    content: [
+      { name: "Sintaxis de plantillas", link: "#" },
+      { name: "Directivas estructurales (ngIf, ngFor)", link: "#" },
+      { name: "Directivas de atributos", link: "#" },
+      { name: "Creación de directivas personalizadas", link: "#" }
+    ],
+  },
+  {
+    title: "Servicios e Inyección de Dependencias",
+    content: [
+      { name: "Creación de servicios", link: "#" },
+      { name: "Uso de servicios en componentes", link: "#" },
+      { name: "Inyección de dependencias", link: "#" }
+    ],
+  },
+  {
+    title: "Ruteo en Angular",
+    content: [
+      { name: "Introducción al enrutamiento", link: "#" },
+      { name: "Configuración de rutas", link: "#" },
+      { name: "Rutas anidadas y parámetros de ruta", link: "#" },
+      { name: "Protección de rutas", link: "#" }
+    ],
+  },
+  {
+    title: "Formularios en Angular",
+    content: [
+      { name: "Formularios reactivos vs. formularios basados en plantillas", link: "#" },
+      { name: "Validación de formularios", link: "#" },
+      { name: "Manejo de formularios en Angular", link: "#" }
+    ],
+  },
+  {
+    title: "Consumo de API REST",
+    content: [
+      { name: "Uso de HttpClient", link: "#" },
+      { name: "Manejo de peticiones y respuestas", link: "#" },
+      { name: "Interceptors y manejo de errores", link: "#" }
+    ],
+  },
+  {
+    title: "Seguridad en Angular",
+    content: [
+      { name: "Autenticación y autorización", link: "#" },
+      { name: "Uso de guardias de ruta", link: "#" },
+      { name: "Protección de datos sensibles", link: "#" }
+    ],
+  },
+  {
+    title: "Pruebas en Angular",
+    content: [
+      { name: "Introducción a las pruebas en Angular", link: "#" },
+      { name: "Pruebas unitarias con Jasmine y Karma", link: "#" },
+      { name: "Pruebas de integración y end-to-end con Protractor", link: "#" }
+    ],
+  },
+  {
+    title: "Despliegue de Aplicaciones Angular",
+    content: [
+      { name: "Preparación para el despliegue", link: "#" },
+      { name: "Despliegue en plataformas (Firebase, Netlify)", link: "#" },
+      { name: "Configuración de servidores para aplicaciones Angular", link: "#" }
+    ],
+  },
+  {
+    title: "Buenas Prácticas y Optimización",
+    content: [
+      { name: "Mejores prácticas en el desarrollo de aplicaciones Angular", link: "#" },
+      { name: "Optimización del rendimiento en Angular", link: "#" },
+      { name: "Manejo de errores y logging", link: "#" }
+    ],
+  }
+];
 
 ---
 
@@ -9,6 +114,9 @@ import Sidebar from "../component/Sidebar.astro";
   <Navbar />
   <Sidebar />
   <div class="px-10 py-24 sm:ml-64">
-    
+    <Breadcrumb links={[{ href: "/DevDocs/home", label: "Home" }, { label: "Angular", current: true }]} />
+    <br>
+    <br>
+    <Accordion temario={temarioAngular} />
   </div>
 </Layout>

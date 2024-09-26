@@ -2,12 +2,105 @@
 import Layout from "../layout/Layout.astro";
 import Navbar from "../component/Navbar.astro";
 import Sidebar from "../component/Sidebar.astro";
+import Breadcrumb from "../component/Breadcrumb.astro";
+import Accordion from "../component/Accordion.astro";
+
+const temarioTailwindCSS = [
+  {
+    title: "Introducción a Tailwind CSS",
+    content: [
+      { name: "¿Qué es Tailwind CSS?", link: "#" },
+      { name: "Características principales", link: "#" },
+      { name: "Ventajas frente a otros frameworks CSS", link: "#" },
+      { name: "Instalación y configuración", link: "#" }
+    ],
+  },
+  {
+    title: "Conceptos Básicos de Tailwind CSS",
+    content: [
+      { name: "Clases utilitarias", link: "#" },
+      { name: "Responsive design con Tailwind", link: "#" },
+      { name: "Tema oscuro y claro", link: "#" },
+      { name: "Configuración de colores y fuentes", link: "#" }
+    ],
+  },
+  {
+    title: "Diseño de Componentes con Tailwind",
+    content: [
+      { name: "Creación de botones", link: "#" },
+      { name: "Diseño de formularios", link: "#" },
+      { name: "Construcción de tarjetas", link: "#" },
+      { name: "Uso de íconos y fuentes externas", link: "#" }
+    ],
+  },
+  {
+    title: "Personalización de Tailwind CSS",
+    content: [
+      { name: "Configuración de `tailwind.config.js`", link: "#" },
+      { name: "Extensión de clases personalizadas", link: "#" },
+      { name: "Uso de SASS con Tailwind", link: "#" }
+    ],
+  },
+  {
+    title: "Manejo de Efectos y Transiciones",
+    content: [
+      { name: "Transiciones y animaciones", link: "#" },
+      { name: "Efectos hover y focus", link: "#" },
+      { name: "Uso de `@apply` para combinaciones de clases", link: "#" }
+    ],
+  },
+  {
+    title: "Utilidades de Tailwind CSS",
+    content: [
+      { name: "Espaciado (márgenes y paddings)", link: "#" },
+      { name: "Flexbox y Grid", link: "#" },
+      { name: "Visibilidad y ocultación de elementos", link: "#" },
+      { name: "Textos y tipografía", link: "#" }
+    ],
+  },
+  {
+    title: "Integración con Frameworks y Librerías",
+    content: [
+      { name: "Uso de Tailwind con React", link: "#" },
+      { name: "Integración con Vue.js", link: "#" },
+      { name: "Uso de Tailwind con Angular", link: "#" }
+    ],
+  },
+  {
+    title: "Despliegue de Proyectos con Tailwind CSS",
+    content: [
+      { name: "Preparación para el despliegue", link: "#" },
+      { name: "Optimización de archivos CSS", link: "#" },
+      { name: "Manejo de dependencias y CDN", link: "#" }
+    ],
+  },
+  {
+    title: "Pruebas y Mejores Prácticas",
+    content: [
+      { name: "Mejores prácticas en el uso de Tailwind CSS", link: "#" },
+      { name: "Pruebas de rendimiento", link: "#" },
+      { name: "Manejo de errores y debugging", link: "#" }
+    ],
+  },
+  {
+    title: "Recursos Adicionales",
+    content: [
+      { name: "Documentación oficial de Tailwind CSS", link: "https://tailwindcss.com/docs" },
+      { name: "Ejemplos y plantillas", link: "#" },
+      { name: "Comunidad y soporte", link: "#" }
+    ],
+  }
+];
+
 ---
 
 <Layout title="DevDocs :: Tailwindcss">
   <Navbar />
   <Sidebar />
   <div class="px-10 py-24 sm:ml-64">
-    
+    <Breadcrumb links={[{ href: "/DevDocs/home", label: "Home" }, { label: "Tailwindcss", current: true }]} />
+    <br>
+    <br>
+    <Accordion temario={temarioTailwindCSS} />
   </div>
 </Layout>

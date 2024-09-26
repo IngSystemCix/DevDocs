@@ -2,12 +2,102 @@
 import Layout from "../layout/Layout.astro";
 import Navbar from "../component/Navbar.astro";
 import Sidebar from "../component/Sidebar.astro";
+import Breadcrumb from "../component/Breadcrumb.astro";
+import Accordion from "../component/Accordion.astro";
+
+const temarioSASS = [
+  {
+    title: "Introducción a SASS",
+    content: [
+      { name: "¿Qué es SASS?", link: "#" },
+      { name: "Características principales", link: "#" },
+      { name: "Ventajas frente a CSS tradicional", link: "#" },
+      { name: "Instalación y configuración", link: "#" }
+    ],
+  },
+  {
+    title: "Sintaxis de SASS",
+    content: [
+      { name: "SASS vs SCSS", link: "#" },
+      { name: "Uso de llaves y punto y coma", link: "#" },
+      { name: "Variables en SASS", link: "#" }
+    ],
+  },
+  {
+    title: "Estructuración de Estilos",
+    content: [
+      { name: "Anidamiento de selectores", link: "#" },
+      { name: "Partials y la directiva @import", link: "#" },
+      { name: "Uso de Mixins", link: "#" }
+    ],
+  },
+  {
+    title: "Funciones y Operaciones en SASS",
+    content: [
+      { name: "Funciones integradas en SASS", link: "#" },
+      { name: "Creación de funciones personalizadas", link: "#" },
+      { name: "Operaciones matemáticas", link: "#" }
+    ],
+  },
+  {
+    title: "Manejo de Color en SASS",
+    content: [
+      { name: "Funciones de color", link: "#" },
+      { name: "Manipulación de colores", link: "#" },
+      { name: "Uso de paletas de colores" , link: "#" }
+    ],
+  },
+  {
+    title: "Control de Flujo",
+    content: [
+      { name: "Condicionales (if, if-else)", link: "#" },
+      { name: "Bucles (for, while)", link: "#" },
+      { name: "Uso de la directiva @each", link: "#" }
+    ],
+  },
+  {
+    title: "Organización y Estructuración del Proyecto",
+    content: [
+      { name: "Estructura de carpetas", link: "#" },
+      { name: "Separación de estilos", link: "#" },
+      { name: "Uso de variables globales", link: "#" }
+    ],
+  },
+  {
+    title: "Optimización de SASS",
+    content: [
+      { name: "Minificación de archivos CSS", link: "#" },
+      { name: "Uso de SASS en producción", link: "#" },
+      { name: "Mejores prácticas de rendimiento", link: "#" }
+    ],
+  },
+  {
+    title: "Integración con Otras Herramientas",
+    content: [
+      { name: "Uso de SASS con frameworks como Bootstrap", link: "#" },
+      { name: "Integración con herramientas de construcción (Webpack, Gulp)", link: "#" },
+      { name: "Uso de SASS en proyectos de React", link: "#" }
+    ],
+  },
+  {
+    title: "Recursos Adicionales",
+    content: [
+      { name: "Documentación oficial de SASS", link: "https://sass-lang.com/documentation" },
+      { name: "Ejemplos y plantillas", link: "#" },
+      { name: "Comunidad y soporte", link: "#" }
+    ],
+  }
+];
+
 ---
 
 <Layout title="DevDocs :: Sass">
   <Navbar />
   <Sidebar />
   <div class="px-10 py-24 sm:ml-64">
-    
+    <Breadcrumb links={[{ href: "/DevDocs/home", label: "Home" }, { label: "Sass", current: true }]} />
+    <br>
+    <br>
+    <Accordion temario={temarioSASS} />
   </div>
 </Layout>
