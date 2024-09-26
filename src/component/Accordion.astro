@@ -18,7 +18,7 @@ const { temario } = Astro.props;
           <ul class="ps-5 list-disc">
             {item.content.map((subItem) => (
               <li class="list-none">
-                <a href={subItem.link} class="text-blue-600 dark:text-blue-500 hover:underline" target="_blank">{subItem.name}</a>
+                <a href={subItem.link} class="text-blue-600 dark:text-blue-500 hover:underline">{subItem.name}</a>
               </li>
             ))}
           </ul>

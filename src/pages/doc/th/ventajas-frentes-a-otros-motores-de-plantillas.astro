@@ -1,0 +1,58 @@
+---
+import Layout from "../../../layout/Layout.astro";
+import Navbar from "../../../component/Navbar.astro";
+import Sidebar from "../../../component/Sidebar.astro";
+import Breadcrumb from "../../../component/Breadcrumb.astro";
+import CodeComponent from "../../../react/CodeComponent";
+
+---
+
+<Layout title="DevDocs :: Thymeleaf">
+  <Navbar />
+  <Sidebar />
+  <div class="px-10 py-24 sm:ml-64">
+    <Breadcrumb links={[{ href: "/DevDocs/home", label: "Home" }, { href: "/DevDocs/thymeleaf", label: "Thymeleaf" }, { label: "Tema 04", current: true }]} />
+    <br>
+    <br>
+    <h1 class="text-4xl font-bold text-white">Ventajas de Thymeleaf frente a otros motores de plantillas</h1>
+    <br>
+    <br>
+    <div class="text-white">
+      <h2 class="text-blue-500 font-bold">Ventajas de Thymeleaf frente a otros motores de plantillas (JSP, FreeMarker)</h2>
+      <br><br>
+      <ol class="flex flex-col gap-5">
+          <li>
+              <strong class="text-blue-500 font-bold">Lenguaje de Plantillas Natural:</strong> Thymeleaf permite visualizar las plantillas HTML directamente en el navegador antes de ser procesadas por el servidor, facilitando el trabajo de los diseñadores y desarrolladores.
+          </li>
+          <li>
+              <strong class="text-blue-500 font-bold">Integración con Spring:</strong> Thymeleaf está diseñado para integrarse de manera sencilla con Spring MVC y Spring Boot, ofreciendo una configuración más simple y directa en comparación con JSP.
+          </li>
+          <li>
+              <strong class="text-blue-500 font-bold">Sintaxis Más Limpia:</strong> Thymeleaf utiliza atributos de HTML, lo que resulta en una sintaxis más clara y fácil de entender en comparación con FreeMarker y JSP, lo que reduce la curva de aprendizaje.
+          </li>
+          <li>
+              <strong class="text-blue-500 font-bold">Soporte para Fragmentos:</strong> Permite definir y reutilizar fragmentos de HTML, lo que promueve el código DRY (Don't Repeat Yourself) y mejora la mantenibilidad.
+          </li>
+          <li>
+              <strong class="text-blue-500 font-bold">Internacionalización Incorporada:</strong> Thymeleaf ofrece un soporte robusto para la internacionalización, facilitando la creación de aplicaciones multilingües sin complicaciones adicionales.
+          </li>
+          <li>
+              <strong class="text-blue-500 font-bold">Condicionales y Bucles Mejorados:</strong> La lógica condicional y los bucles son más fáciles de implementar en Thymeleaf en comparación con JSP y FreeMarker, permitiendo una mayor flexibilidad en la generación de contenido dinámico.
+          </li>
+          <li>
+              <strong class="text-blue-500 font-bold">Facilidad en el Manejo de Formularios:</strong> Thymeleaf proporciona un manejo de formularios más intuitivo y completo, incluyendo validaciones y mensajes de error, lo que simplifica la creación de formularios complejos.
+          </li>
+          <li>
+              <strong class="text-blue-500 font-bold">Compatibilidad con JavaScript y CSS:</strong> Se integra fácilmente con JavaScript y CSS, permitiendo crear interfaces de usuario interactivas sin dificultades adicionales.
+          </li>
+          <li>
+              <strong class="text-blue-500 font-bold">Pruebas Sencillas:</strong> Las plantillas Thymeleaf son fáciles de probar, lo que contribuye a mejorar la calidad del código y la fiabilidad del proyecto.
+          </li>
+          <li>
+              <strong class="text-blue-500 font-bold">Extensibilidad:</strong> Thymeleaf permite la creación de dialectos personalizados, ofreciendo una gran capacidad de personalización para necesidades específicas que no siempre están disponibles en otros motores.
+          </li>
+      </ol>
+
+    </div>
+  </div>
+</Layout>

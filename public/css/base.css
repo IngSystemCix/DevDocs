@@ -13,7 +13,7 @@
   }
 
   ::-webkit-scrollbar-thumb {
-    background-color: #888;
+    background-color: #0873ff;
     border-radius: 10px;
     border: 3px solid #f1f1f1;
   }
@@ -21,16 +21,15 @@
   ::-webkit-scrollbar-thumb:hover {
     background: #555;
   }
-
-  /* For Firefox versions older than 64 */
+  
   * {
     scrollbar-width: thin;
-    scrollbar-color: #888 #f1f1f1;
+    scrollbar-color: #0873ff #f1f1f1;
   }
 }
 
 @layer components {
-  
+
 }
 
 @layer utilities {

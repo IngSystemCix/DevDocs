@@ -1,0 +1,926 @@
+---
+import Layout from "../../../layout/Layout.astro";
+import Navbar from "../../../component/Navbar.astro";
+import Sidebar from "../../../component/Sidebar.astro";
+import Breadcrumb from "../../../component/Breadcrumb.astro";
+import CodeComponent from "../../../react/CodeComponent";
+---
+
+<Layout title="DevDocs :: Thymeleaf">
+  <Navbar />
+  <Sidebar />
+  <div class="px-10 py-24 sm:ml-64">
+    <Breadcrumb links={[{ href: "/DevDocs/home", label: "Home" }, { href: "/DevDocs/thymeleaf", label: "Thymeleaf" }, { label: "Tema 06", current: true }]} />
+    <br>
+    <br>
+    <h1 class="text-4xl font-bold text-white">Plantillas Thymeleaf</h1>
+    <br>
+    <div class="space-y-4 text-white">
+      <h2 class="text-blue-500 font-bold">Atributos de Thymeleaf</h2>
+
+<ul>
+    <li>
+        <strong class="text-blue-500 font-bold">th:abbr:</strong> Establece el atributo <code>abbr</code> de un elemento.
+        <br>
+        <CodeComponent codeString={`
+<span th:abbr="\${abreviatura}">Texto</span>
+        `} language="html"/>
+        <p>Proporciona una abreviatura para el texto.</p>
+    </li><br/>
+
+    <li>
+        <strong class="text-blue-500 font-bold">th:accept:</strong> Define los tipos de archivo que se pueden cargar en un campo de entrada de tipo archivo.
+        <br>
+        <CodeComponent codeString={`
+<input type="file" th:accept=".jpg,.png" />
+        `} language="html"/>
+        <p>Permite cargar solo archivos con extensiones .jpg y .png.</p>
+    </li><br/>
+
+    <li>
+        <strong class="text-blue-500 font-bold">th:accept-charset:</strong> Especifica los conjuntos de caracteres aceptables para el formulario.
+        <br>
+        <CodeComponent codeString={`
+<form th:accept-charset="UTF-8" method="post">
+    <button type="submit">Enviar</button>
+</form>
+        `} language="html"/>
+        <p>Este formulario acepta datos codificados en UTF-8.</p>
+    </li><br/>
+
+    <li>
+        <strong class="text-blue-500 font-bold">th:accesskey:</strong> Establece una tecla de acceso rápido para el elemento.
+        <br>
+        <CodeComponent codeString={`
+<a th:accesskey="s" th:href="@{/home}">Ir a inicio</a>
+        `} language="html"/>
+        <p>Permite acceder al enlace usando la tecla de acceso especificada.</p>
+    </li><br/>
+
+    <li>
+        <strong class="text-blue-500 font-bold">th:action:</strong> Especifica la URL a la que se enviará el formulario.
+        <br>
+        <CodeComponent codeString={`
+<form th:action="@{/submit}" method="post">
+    <button type="submit">Enviar</button>
+</form>
+        `} language="html"/>
+        <p>Este formulario se enviará a la URL <code>/submit</code>.</p>
+    </li><br/>
+
+    <li>
+        <strong class="text-blue-500 font-bold">th:align:</strong> Establece el alineamiento de un elemento.
+        <br>
+        <CodeComponent codeString={`
+<div th:align="center">Texto centrado</div>
+        `} language="html"/>
+        <p>Este elemento estará alineado al centro.</p>
+    </li><br/>
+
+    <li>
+        <strong class="text-blue-500 font-bold">th:alt:</strong> Proporciona texto alternativo para imágenes.
+        <br>
+        <CodeComponent codeString={`
+<img th:src="@{/images/logo.png}" th:alt="\${descripcionImagen}" />
+        `} language="html"/>
+        <p>El texto alternativo se obtiene de una variable del modelo.</p>
+    </li><br/>
+
+    <li>
+        <strong class="text-blue-500 font-bold">th:archive:</strong> Define un archivo de archivo para un elemento de audio o video.
+        <br>
+        <CodeComponent codeString={`
+<audio th:archive="\${archivoAudio}"></audio>
+        `} language="html"/>
+        <p>Especifica un archivo adicional que acompaña al elemento de audio.</p>
+    </li><br/>
+
+    <li>
+        <strong class="text-blue-500 font-bold">th:audio:</strong> Define un elemento de audio.
+        <br>
+        <CodeComponent codeString={`
+<audio th:src="@{/audio/mi_audio.mp3}" controls></audio>
+        `} language="html"/>
+        <p>Este elemento reproduce el audio especificado.</p>
+    </li><br/>
+
+    <li>
+        <strong class="text-blue-500 font-bold">th:autocomplete:</strong> Establece el comportamiento de autocompletado en un campo de entrada.
+        <br>
+        <CodeComponent codeString={`
+<input type="text" th:autocomplete="on" />
+        `} language="html"/>
+        <p>Este campo permitirá el autocompletado de los datos ingresados.</p>
+    </li><br/>
+
+    <li>
+        <strong class="text-blue-500 font-bold">th:axis:</strong> Define el eje para un elemento en un gráfico.
+        <br>
+        <CodeComponent codeString={`
+<canvas th:axis="x" id="miGrafico"></canvas>
+        `} language="html"/>
+        <p>Establece el eje en el que se representará el gráfico.</p>
+    </li><br/>
+
+    <li>
+        <strong class="text-blue-500 font-bold">th:background:</strong> Establece una imagen de fondo para un elemento.
+        <br>
+        <CodeComponent codeString={`
+<div th:style="'background-image: url(' + \${imagenFondo} + ')'">
+    Contenido con fondo
+</div>
+        `} language="html"/>
+        <p>Establece una imagen de fondo dinámica basada en la variable <code>imagenFondo</code>.</p>
+    </li><br/>
+
+    <li>
+        <strong class="text-blue-500 font-bold">th:bgcolor:</strong> Establece el color de fondo de un elemento.
+        <br>
+        <CodeComponent codeString={`
+<div th:bgcolor="\${colorFondo}">Contenido</div>
+        `} language="html"/>
+        <p>El color de fondo se establece dinámicamente desde la variable <code>colorFondo</code>.</p>
+    </li><br/>
+
+    <li>
+        <strong class="text-blue-500 font-bold">th:border:</strong> Establece el estilo del borde de un elemento.
+        <br>
+        <CodeComponent codeString={`
+<table th:border="1">
+    <tr><td>Datos</td></tr>
+</table>
+        `} language="html"/>
+        <p>Establece un borde para la tabla.</p>
+    </li><br/>
+
+    <li>
+        <strong class="text-blue-500 font-bold">th:cellpadding:</strong> Establece el espacio entre el borde de una celda y su contenido.
+        <br>
+        <CodeComponent codeString={`
+<table th:cellpadding="10">
+    <tr><td>Datos</td></tr>
+</table>
+        `} language="html"/>
+        <p>Define el espacio de relleno de las celdas en la tabla.</p>
+    </li><br/>
+
+    <li>
+        <strong class="text-blue-500 font-bold">th:cellspacing:</strong> Establece el espacio entre las celdas de una tabla.
+        <br>
+        <CodeComponent codeString={`
+<table th:cellspacing="5">
+    <tr><td>Datos</td><td>Datos</td></tr>
+</table>
+        `} language="html"/>
+        <p>Define el espacio entre las celdas de la tabla.</p>
+    </li><br/>
+
+    <li>
+        <strong class="text-blue-500 font-bold">th:challenge:</strong> Establece el desafío para un elemento en la autenticación de cliente.
+        <br>
+        <CodeComponent codeString={`
+<iframe th:challenge="reCAPTCHA"></iframe>
+        `} language="html"/>
+        <p>Utiliza un desafío de reCAPTCHA para la autenticación del cliente.</p>
+    </li><br/>
+
+    <li>
+        <strong class="text-blue-500 font-bold">th:charset:</strong> Define el conjunto de caracteres de un documento.
+        <br>
+        <CodeComponent codeString={`
+<meta th:charset="UTF-8">
+        `} language="html"/>
+        <p>Especifica que el documento utiliza el conjunto de caracteres UTF-8.</p>
+    </li><br/>
+
+    <li>
+        <strong class="text-blue-500 font-bold">th:cite:</strong> Establece una cita para el contenido.
+        <br>
+        <CodeComponent codeString={`
+<blockquote th:cite="\${fuente}">Cita aquí</blockquote>
+        `} language="html"/>
+        <p>Proporciona una referencia a la fuente de la cita.</p>
+    </li><br/>
+
+    <li>
+        <strong class="text-blue-500 font-bold">th:class:</strong> Permite añadir o modificar clases CSS dinámicamente.
+        <br>
+        <CodeComponent codeString={`
+<div th:class="\${activo ? 'activo' : 'inactivo'}">Contenido</div>
+        `} language="html"/>
+        <p>La clase se establece en <code>activo</code> o <code>inactivo</code> dependiendo de la variable.</p>
+    </li><br/>
+
+    <li>
+        <strong class="text-blue-500 font-bold">th:classid:</strong> Especifica un identificador de clase.
+        <br>
+        <CodeComponent codeString={`
+<div th:classid="\${idClase}">Contenido</div>
+        `} language="html"/>
+        <p>Asigna un identificador de clase dinámicamente.</p>
+    </li><br/>
+
+    <li>
+        <strong class="text-blue-500 font-bold">th:codebase:</strong> Define la base del código para un elemento.
+        <br>
+        <CodeComponent codeString={`
+<applet th:codebase="\${rutaApplet}"></applet>
+        `} language="html"/>
+        <p>Define la base del código para un applet.</p>
+    </li><br/>
+
+    <li>
+        <strong class="text-blue-500 font-bold">th:codetype:</strong> Establece el tipo de código para un elemento.
+        <br>
+        <CodeComponent codeString={`
+<applet th:codetype="application/java" />
+        `} language="html"/>
+        <p>Especifica el tipo de código para el applet.</p>
+    </li><br/>
+
+    <li>
+        <strong class="text-blue-500 font-bold">th:cols:</strong> Define el número de columnas en un área de texto.
+        <br>
+        <CodeComponent codeString={`
+<textarea th:cols="30"></textarea>
+        `} language="html"/>
+        <p>Establece 30 columnas para el área de texto.</p>
+    </li><br/>
+
+    <li>
+        <strong class="text-blue-500 font-bold">th:colspan:</strong> Establece cuántas columnas debe ocupar una celda en una tabla.
+        <br>
+        <CodeComponent codeString={`
+<td th:colspan="2">Celdas combinadas</td>
+        `} language="html"/>
+        <p>La celda ocupa dos columnas en la tabla.</p>
+    </li><br/>
+
+    <li>
+        <strong class="text-blue-500 font-bold">th:compact:</strong> Indica que un elemento debe ser presentado de forma compacta.
+        <br>
+        <CodeComponent codeString={`
+<ul th:compact="true">
+    <li>Elemento 1</li><br/>
+    <li>Elemento 2</li><br/>
+</ul>
+        `} language="html"/>
+        <p>Presenta la lista de forma compacta.</p>
+    </li><br/>
+
+    <li>
+        <strong class="text-blue-500 font-bold">th:content:</strong> Establece el contenido de un elemento.
+        <br>
+        <CodeComponent codeString={`
+<div th:content="\${contenido}"></div>
+        `} language="html"/>
+        <p>El contenido se establece dinámicamente desde una variable.</p>
+    </li><br/>
+
+    <li>
+        <strong class="text-blue-500 font-bold">th:contenteditable:</strong> Indica que el contenido de un elemento puede ser editado por el usuario.
+        <br>
+        <CodeComponent codeString={`
+<div th:contenteditable="true">Contenido editable</div>
+        `} language="html"/>
+        <p>Este elemento puede ser editado directamente en el navegador.</p>
+    </li><br/>
+
+    <li>
+        <strong class="text-blue-500 font-bold">th:contextmenu:</strong> Especifica el menú contextual asociado a un elemento.
+        <br>
+        <CodeComponent codeString={`
+<div th:contextmenu="@{/menu}">Contenido</div>
+        `} language="html"/>
+        <p>Asocia un menú contextual a este elemento.</p>
+    </li><br/>
+
+    <li>
+        <strong class="text-blue-500 font-bold">th:data:</strong> Establece un atributo de datos personalizado en un elemento.
+        <br>
+        <CodeComponent codeString={`
+<div th:data-custom="\${valorPersonalizado}">Contenido</div>
+        `} language="html"/>
+        <p>Agrega un atributo de datos personalizado.</p>
+    </li><br/>
+
+    <li>
+        <strong class="text-blue-500 font-bold">th:datetime:</strong> Define una fecha y hora.
+        <br>
+        <CodeComponent codeString={`
+<time th:datetime="\${fechaHora}">Fecha y hora</time>
+        `} language="html"/>
+        <p>Representa una fecha y hora utilizando el atributo <code>datetime</code>.</p>
+    </li><br/>
+
+    <li>
+        <strong class="text-blue-500 font-bold">th:dir:</strong> Establece la dirección del texto.
+        <br>
+        <CodeComponent codeString={`
+<div th:dir="ltr">Texto de izquierda a derecha</div>
+        `} language="html"/>
+        <p>Define que el texto se leerá de izquierda a derecha.</p>
+    </li><br/>
+
+    <li>
+        <strong class="text-blue-500 font-bold">th:draggable:</strong> Indica si un elemento puede ser arrastrado.
+        <br>
+        <CodeComponent codeString={`
+<div th:draggable="true">Contenido arrastrable</div>
+        `} language="html"/>
+        <p>Permite arrastrar este elemento.</p>
+    </li><br/>
+
+    <li>
+        <strong class="text-blue-500 font-bold">th:dropzone:</strong> Define la zona donde se pueden soltar los elementos arrastrados.
+        <br>
+        <CodeComponent codeString={`
+<div th:dropzone="copy">Suelta aquí</div>
+        `} language="html"/>
+        <p>Especifica que se puede copiar al soltar en esta zona.</p>
+    </li><br/>
+
+    <li>
+        <strong class="text-blue-500 font-bold">th:enctype:</strong> Establece la codificación del formulario.
+        <br>
+        <CodeComponent codeString={`
+<form th:enctype="multipart/form-data" method="post">
+    <input type="file" />
+    <button type="submit">Enviar</button>
+</form>
+        `} language="html"/>
+        <p>Define la codificación para la carga de archivos.</p>
+    </li><br/>
+
+    <li>
+        <strong class="text-blue-500 font-bold">th:for:</strong> Especifica el valor del atributo <code>for</code> en una etiqueta de etiqueta.
+        <br>
+        <CodeComponent codeString={`
+<label th:for="\${idCampo}">Etiqueta</label>
+        `} language="html"/>
+        <p>Asocia la etiqueta con un campo de entrada específico.</p>
+    </li><br/>
+
+    <li>
+        <strong class="text-blue-500 font-bold">th:form:</strong> Define el formulario asociado a un elemento.
+        <br>
+        <CodeComponent codeString={`
+<input th:form="\${idFormulario}" type="text" />
+        `} language="html"/>
+        <p>Asocia este campo de entrada a un formulario específico.</p>
+    </li><br/>
+
+    <li>
+        <strong class="text-blue-500 font-bold">th:formaction:</strong> Define la URL a la que se enviará el formulario cuando se use este botón.
+        <br>
+        <CodeComponent codeString={`
+<button th:formaction="@{/submit}">Enviar</button>
+        `} language="html"/>
+        <p>Especifica la acción del formulario al enviar este botón.</p>
+    </li><br/>
+
+    <li>
+        <strong class="text-blue-500 font-bold">th:formenctype:</strong> Establece la codificación del formulario.
+        <br>
+        <CodeComponent codeString={`
+<form th:formenctype="application/json">
+    <button type="submit">Enviar</button>
+</form>
+        `} language="html"/>
+        <p>Define la codificación para el formulario.</p>
+    </li><br/>
+
+    <li>
+        <strong class="text-blue-500 font-bold">th:formmethod:</strong> Especifica el método HTTP para enviar el formulario.
+        <br>
+        <CodeComponent codeString={`
+<form th:formmethod="post">
+    <button type="submit">Enviar</button>
+</form>
+        `} language="html"/>
+        <p>Define que el formulario se enviará utilizando el método POST.</p>
+    </li><br/>
+
+    <li>
+        <strong class="text-blue-500 font-bold">th:formtarget:</strong> Especifica el objetivo de la respuesta al enviar el formulario.
+        <br>
+        <CodeComponent codeString={`
+<form th:formtarget="_blank">
+    <button type="submit">Enviar</button>
+</form>
+        `} language="html"/>
+        <p>El formulario se abrirá en una nueva pestaña al enviarse.</p>
+    </li><br/>
+
+    <li>
+        <strong class="text-blue-500 font-bold">th:fragment:</strong> Define un fragmento que se puede reutilizar en otras partes de la plantilla.
+        <br>
+        <CodeComponent codeString={`
+<div th:fragment="miFragmento">Contenido del fragmento</div>
+        `} language="html"/>
+        <p>Este fragmento puede ser referenciado en otras partes de la plantilla.</p>
+    </li><br/>
+
+    <li>
+        <strong class="text-blue-500 font-bold">th:frame:</strong> Define un marco para un elemento.
+        <br>
+        <CodeComponent codeString={`
+<iframe th:frame="no" src="@{/pagina}"></iframe>
+        `} language="html"/>
+        <p>Especifica que no se permitirá un marco en este iframe.</p>
+    </li><br/>
+
+    <li>
+        <strong class="text-blue-500 font-bold">th:frameborder:</strong> Define el borde de un marco.
+        <br>
+        <CodeComponent codeString={`
+<iframe th:frameborder="0"></iframe>
+        `} language="html"/>
+        <p>Especifica que no debe haber borde en el iframe.</p>
+    </li><br/>
+
+    <li>
+        <strong class="text-blue-500 font-bold">th:headers:</strong> Define los encabezados HTTP adicionales para la solicitud.
+        <br>
+        <CodeComponent codeString={`
+<div th:headers="\${encabezados}">Contenido</div>
+        `} language="html"/>
+        <p>Especifica encabezados adicionales a enviar con la solicitud.</p>
+    </li><br/>
+
+    <li>
+        <strong class="text-blue-500 font-bold">th:height:</strong> Establece la altura de un elemento.
+        <br>
+        <CodeComponent codeString={`
+<img th:src="@{/imagenes/logo.png}" th:height="100" />
+        `} language="html"/>
+        <p>Define que la imagen tendrá una altura de 100 píxeles.</p>
+    </li><br/>
+
+    <li>
+        <strong class="text-blue-500 font-bold">th:high:</strong> Establece el valor alto para elementos de entrada como <code>input</code> o <code>meter</code>.
+        <br>
+        <CodeComponent codeString={`
+<meter th:high="90"></meter>
+        `} language="html"/>
+        <p>Define que el valor alto del medidor es 90.</p>
+    </li><br/>
+
+    <li>
+        <strong class="text-blue-500 font-bold">th:href:</strong> Establece la URL de un enlace.
+        <br>
+        <CodeComponent codeString={`
+<a th:href="@{/pagina}">Ir a la página</a>
+        `} language="html"/>
+        <p>Define el destino del enlace.</p>
+    </li><br/>
+
+    <li>
+        <strong class="text-blue-500 font-bold">th:hreflang:</strong> Especifica el idioma del documento al que se vincula.
+        <br>
+        <CodeComponent codeString={`
+<a th:hreflang="es" th:href="@{/pagina}">Ir a la página</a>
+        `} language="html"/>
+        <p>Define que el idioma del enlace es español.</p>
+    </li><br/>
+
+    <li>
+        <strong class="text-blue-500 font-bold">th:hspace:</strong> Especifica el espacio horizontal alrededor de un elemento.
+        <br>
+        <CodeComponent codeString={`
+<img th:src="@{/imagenes/logo.png}" th:hspace="20" />
+        `} language="html"/>
+        <p>Define un espacio horizontal de 20 píxeles alrededor de la imagen.</p>
+    </li><br/>
+
+    <li>
+        <strong class="text-blue-500 font-bold">th:http-equiv:</strong> Proporciona información sobre el contenido del documento.
+        <br>
+        <CodeComponent codeString={`
+<meta th:http-equiv="X-UA-Compatible" content="IE=edge" />
+        `} language="html"/>
+        <p>Indica que el documento es compatible con IE.</p>
+    </li><br/>
+
+    <li>
+        <strong class="text-blue-500 font-bold">th:icon:</strong> Establece un ícono para un documento.
+        <br>
+        <CodeComponent codeString={`
+<link th:icon="@{/favicon.ico}" rel="icon" />
+        `} language="html"/>
+        <p>Define un ícono para la página.</p>
+    </li><br/>
+
+    <li>
+        <strong class="text-blue-500 font-bold">th:id:</strong> Establece el identificador único de un elemento.
+        <br>
+        <CodeComponent codeString={`
+<div th:id="\${identificador}">Contenido</div>
+        `} language="html"/>
+        <p>Define un identificador único para este elemento.</p>
+    </li><br/>
+
+    <li>
+        <strong class="text-blue-500 font-bold">th:inline:</strong> Permite la inclusión en línea de otros elementos.
+        <br>
+        <CodeComponent codeString={`
+<div th:inline="text">Texto incluido</div>
+        `} language="html"/>
+        <p>Especifica que se permite la inclusión de texto.</p>
+    </li><br/>
+
+    <li>
+        <strong class="text-blue-500 font-bold">th:keytype:</strong> Especifica el tipo de clave de un elemento.
+        <br>
+        <CodeComponent codeString={`
+<input th:keytype="text" />
+        `} language="html"/>
+        <p>Define que el tipo de clave es texto.</p>
+    </li><br/>
+
+    <li>
+        <strong class="text-blue-500 font-bold">th:kind:</strong> Especifica el tipo de contenido de un elemento.
+        <br>
+        <CodeComponent codeString={`
+<video th:kind="subtitles" src="@{/video/subtitulada.mp4}"></video>
+        `} language="html"/>
+        <p>Define que el video tiene subtítulos.</p>
+    </li><br/>
+
+    <li>
+        <strong class="text-blue-500 font-bold">th:label:</strong> Define la etiqueta para un elemento de formulario.
+        <br>
+        <CodeComponent codeString={`
+<label th:label="\${etiqueta}">Etiqueta</label>
+        `} language="html"/>
+        <p>Especifica la etiqueta asociada a un campo de entrada.</p>
+    </li><br/>
+
+    <li>
+        <strong class="text-blue-500 font-bold">th:lang:</strong> Establece el idioma del contenido.
+        <br>
+        <CodeComponent codeString={`
+<div th:lang="es">Contenido en español</div>
+        `} language="html"/>
+        <p>Define que el contenido está en español.</p>
+    </li><br/>
+
+    <li>
+        <strong class="text-blue-500 font-bold">th:list:</strong> Especifica el ID de un elemento de lista de selección.
+        <br>
+        <CodeComponent codeString={`
+<input th:list="\${idLista}" type="text" />
+        `} language="html"/>
+        <p>Asocia el campo de entrada con un elemento de lista.</p>
+    </li><br/>
+
+    <li>
+        <strong class="text-blue-500 font-bold">th:longdesc:</strong> Proporciona una descripción larga de un elemento.
+        <br>
+        <CodeComponent codeString={`
+<img th:src="@{/imagenes/logo.png}" th:longdesc="@{/descripcionLarga}" />
+        `} language="html"/>
+        <p>Especifica una descripción larga para la imagen.</p>
+    </li><br/>
+
+    <li>
+        <strong class="text-blue-500 font-bold">th:low:</strong> Establece el valor bajo para elementos de entrada como <code>input</code> o <code>meter</code>.
+        <br>
+        <CodeComponent codeString={`
+<meter th:low="10"></meter>
+        `} language="html"/>
+        <p>Define que el valor bajo del medidor es 10.</p>
+    </li><br/>
+
+    <li>
+        <strong class="text-blue-500 font-bold">th:manifest:</strong> Define el archivo de manifiesto para una aplicación web.
+        <br>
+        <CodeComponent codeString={`
+<html th:manifest="@{/manifest.appcache}"></html>
+        `} language="html"/>
+        <p>Especifica el archivo de manifiesto para el navegador.</p>
+    </li><br/>
+
+    <li>
+        <strong class="text-blue-500 font-bold">th:marginheight:</strong> Especifica la altura del margen de un iframe.
+        <br>
+        <CodeComponent codeString={`
+<iframe th:marginheight="10" src="@{/pagina}"></iframe>
+        `} language="html"/>
+        <p>Define que el margen superior e inferior del iframe es de 10 píxeles.</p>
+    </li><br/>
+
+    <li>
+        <strong class="text-blue-500 font-bold">th:marginwidth:</strong> Especifica el ancho del margen de un iframe.
+        <br>
+        <CodeComponent codeString={`
+<iframe th:marginwidth="10" src="@{/pagina}"></iframe>
+        `} language="html"/>
+        <p>Define que el margen izquierdo y derecho del iframe es de 10 píxeles.</p>
+    </li><br/>
+
+    <li>
+        <strong class="text-blue-500 font-bold">th:max:</strong> Establece el valor máximo para elementos de entrada.
+        <br>
+        <CodeComponent codeString={`
+<input type="number" th:max="100" />
+        `} language="html"/>
+        <p>Define que el valor máximo de este campo es 100.</p>
+    </li><br/>
+
+    <li>
+        <strong class="text-blue-500 font-bold">th:maxlength:</strong> Establece el número máximo de caracteres permitidos en un campo de texto.
+        <br>
+        <CodeComponent codeString={`
+<input type="text" th:maxlength="10" />
+        `} language="html"/>
+        <p>Define que se permiten hasta 10 caracteres en este campo.</p>
+    </li><br/>
+
+    <li>
+        <strong class="text-blue-500 font-bold">th:media:</strong> Especifica el tipo de medio para un enlace.
+        <br>
+        <CodeComponent codeString={`
+<link th:media="screen" rel="stylesheet" />
+        `} language="html"/>
+        <p>Define que este enlace es para pantallas.</p>
+    </li><br/>
+
+    <li>
+        <strong class="text-blue-500 font-bold">th:method:</strong> Especifica el método HTTP para enviar el formulario.
+        <br>
+        <CodeComponent codeString={`
+<form th:method="post">
+    <button type="submit">Enviar</button>
+</form>
+        `} language="html"/>
+        <p>Define que el formulario se enviará utilizando el método POST.</p>
+    </li><br/>
+
+    <li>
+        <strong class="text-blue-500 font-bold">th:min:</strong> Establece el valor mínimo para elementos de entrada.
+        <br>
+        <CodeComponent codeString={`
+<input type="number" th:min="1" />
+        `} language="html"/>
+        <p>Define que el valor mínimo de este campo es 1.</p>
+    </li><br/>
+
+    <li>
+        <strong class="text-blue-500 font-bold">th:name:</strong> Establece el nombre del elemento.
+        <br>
+        <CodeComponent codeString={`
+<input type="text" th:name="nombreCampo" />
+        `} language="html"/>
+        <p>Define el nombre del campo de entrada.</p>
+    </li><br/>
+
+    <li>
+        <strong class="text-blue-500 font-bold">th:onabort:</strong> Especifica el manejador del evento <code>abort</code>.
+        <br>
+        <CodeComponent codeString={`
+<img th:onabort="handleAbort()" th:src="@{/imagenes/logo.png}" />
+        `} language="html"/>
+        <p>Define un manejador para el evento de aborto de carga de imagen.</p>
+    </li><br/>
+
+    <li>
+        <strong class="text-blue-500 font-bold">th:onafterprint:</strong> Especifica el manejador del evento <code>afterprint</code>.
+        <br>
+        <CodeComponent codeString={`
+<script th:onafterprint="handleAfterPrint()"></script>
+        `} language="html"/>
+        <p>Define un manejador para el evento que se dispara después de imprimir.</p>
+    </li><br/>
+
+    <li>
+        <strong class="text-blue-500 font-bold">th:onbeforeprint:</strong> Especifica el manejador del evento <code>beforeprint</code>.
+        <br>
+        <CodeComponent codeString={`
+<script th:onbeforeprint="handleBeforePrint()"></script>
+        `} language="html"/>
+        <p>Define un manejador para el evento que se dispara antes de imprimir.</p>
+    </li><br/>
+
+    <li>
+        <strong class="text-blue-500 font-bold">th:onblur:</strong> Especifica el manejador del evento <code>blur</code>.
+        <br>
+        <CodeComponent codeString={`
+<input th:onblur="handleBlur()" type="text" />
+        `} language="html"/>
+        <p>Define un manejador para el evento de desenfoque de campo de entrada.</p>
+    </li><br/>
+
+    <li>
+        <strong class="text-blue-500 font-bold">th:onchange:</strong> Especifica el manejador del evento <code>change</code>.
+        <br>
+        <CodeComponent codeString={`
+<input th:onchange="handleChange()" type="text" />
+        `} language="html"/>
+        <p>Define un manejador para el evento de cambio en el campo de entrada.</p>
+    </li><br/>
+
+    <li>
+        <strong class="text-blue-500 font-bold">th:onclick:</strong> Especifica el manejador del evento <code>click</code>.
+        <br>
+        <CodeComponent codeString={`
+<button th:onclick="handleClick()">Hacer clic</button>
+        `} language="html"/>
+        <p>Define un manejador para el evento de clic en el botón.</p>
+    </li><br/>
+
+    <li>
+        <strong class="text-blue-500 font-bold">th:ondblclick:</strong> Especifica el manejador del evento <code>dblclick</code>.
+        <br>
+        <CodeComponent codeString={`
+<button th:ondblclick="handleDblClick()">Doble clic</button>
+        `} language="html"/>
+        <p>Define un manejador para el evento de doble clic en el botón.</p>
+    </li><br/>
+
+    <li>
+        <strong class="text-blue-500 font-bold">th:onerror:</strong> Especifica el manejador del evento <code>error</code>.
+        <br>
+        <CodeComponent codeString={`
+<img th:onerror="handleError()" th:src="@{/imagenes/logo.png}" />
+        `} language="html"/>
+        <p>Define un manejador para el evento de error al cargar la imagen.</p>
+    </li><br/>
+
+    <li>
+        <strong class="text-blue-500 font-bold">th:onfocus:</strong> Especifica el manejador del evento <code>focus</code>.
+        <br>
+        <CodeComponent codeString={`
+<input th:onfocus="handleFocus()" type="text" />
+        `} language="html"/>
+        <p>Define un manejador para el evento de enfoque del campo de entrada.</p>
+    </li><br/>
+
+    <li>
+        <strong class="text-blue-500 font-bold">th:oninput:</strong> Especifica el manejador del evento <code>input</code>.
+        <br>
+        <CodeComponent codeString={`
+<input th:oninput="handleInput()" type="text" />
+        `} language="html"/>
+        <p>Define un manejador para el evento de entrada en el campo de entrada.</p>
+    </li><br/>
+
+    <li>
+        <strong class="text-blue-500 font-bold">th:oninvalid:</strong> Especifica el manejador del evento <code>invalid</code>.
+        <br>
+        <CodeComponent codeString={`
+<input th:oninvalid="handleInvalid()" type="text" />
+        `} language="html"/>
+        <p>Define un manejador para el evento de campo de entrada no válido.</p>
+    </li><br/>
+
+    <li>
+        <strong class="text-blue-500 font-bold">th:onsubmit:</strong> Especifica el manejador del evento <code>submit</code>.
+        <br>
+        <CodeComponent codeString={`
+<form th:onsubmit="handleSubmit()">
+    <button type="submit">Enviar</button>
+</form>
+        `} language="html"/>
+        <p>Define un manejador para el evento de envío del formulario.</p>
+    </li><br/>
+
+    <li>
+        <strong class="text-blue-500 font-bold">th:readonly:</strong> Especifica que un campo de entrada es de solo lectura.
+        <br>
+        <CodeComponent codeString={`
+<input th:readonly="true" type="text" />
+        `} language="html"/>
+        <p>Este campo no se puede editar por el usuario.</p>
+    </li><br/>
+
+    <li>
+        <strong class="text-blue-500 font-bold">th:rel:</strong> Especifica la relación entre el documento actual y el documento vinculado.
+        <br>
+        <CodeComponent codeString={`
+<link th:rel="stylesheet" th:href="@{/estilos.css}" />
+        `} language="html"/>
+        <p>Define que este enlace es para una hoja de estilo.</p>
+    </li><br/>
+
+    <li>
+        <strong class="text-blue-500 font-bold">th:required:</strong> Especifica que un campo de entrada es obligatorio.
+        <br>
+        <CodeComponent codeString={`
+<input th:required="true" type="text" />
+        `} language="html"/>
+        <p>Este campo debe ser completado antes de enviar el formulario.</p>
+    </li><br/>
+
+    <li>
+        <strong class="text-blue-500 font-bold">th:rev:</strong> Especifica que el enlace es una relación inversa.
+        <br>
+        <CodeComponent codeString={`
+<a th:rev="author" th:href="@{/pagina}">Página de autor</a>
+        `} language="html"/>
+        <p>Define una relación inversa para este enlace.</p>
+    </li><br/>
+
+    <li>
+        <strong class="text-blue-500 font-bold">th:rows:</strong> Define el número de filas en un área de texto.
+        <br>
+        <CodeComponent codeString={`
+<textarea th:rows="5"></textarea>
+        `} language="html"/>
+        <p>Establece 5 filas para el área de texto.</p>
+    </li><br/>
+
+    <li>
+        <strong class="text-blue-500 font-bold">th:scope:</strong> Especifica el alcance de una celda en una tabla.
+        <br>
+        <CodeComponent codeString={`
+<th th:scope="col">Encabezado de columna</th>
+        `} language="html"/>
+        <p>Define que esta celda es un encabezado de columna.</p>
+    </li><br/>
+
+    <li>
+        <strong class="text-blue-500 font-bold">th:seamless:</strong> Indica que un iframe debe ser sin costuras.
+        <br>
+        <CodeComponent codeString={`
+<iframe th:seamless="true" src="@{/pagina}"></iframe>
+        `} language="html"/>
+        <p>Especifica que el iframe debe ser sin costuras.</p>
+    </li><br/>
+
+    <li>
+        <strong class="text-blue-500 font-bold">th:src:</strong> Establece la URL de una imagen o un script.
+        <br>
+        <CodeComponent codeString={`
+<img th:src="@{/imagenes/logo.png}" alt="Logo" />
+        `} language="html"/>
+        <p>Define la fuente de la imagen.</p>
+    </li><br/>
+
+    <li>
+        <strong class="text-blue-500 font-bold">th:style:</strong> Especifica el estilo en línea de un elemento.
+        <br>
+        <CodeComponent codeString={`
+<div th:style="color: red;">Texto rojo</div>
+        `} language="html"/>
+        <p>Define un estilo en línea para este elemento.</p>
+    </li><br/>
+
+    <li>
+        <strong class="text-blue-500 font-bold">th:tabindex:</strong> Establece el índice de tabulación de un elemento.
+        <br>
+        <CodeComponent codeString={`
+<input th:tabindex="1" type="text" />
+        `} language="html"/>
+        <p>Define que este campo será el primero en el orden de tabulación.</p>
+    </li><br/>
+
+    <li>
+        <strong class="text-blue-500 font-bold">th:title:</strong> Especifica el título de un elemento.
+        <br>
+        <CodeComponent codeString={`
+<div th:title="\${titulo}">Texto</div>
+        `} language="html"/>
+        <p>Define el título que aparece al pasar el cursor sobre este elemento.</p>
+    </li><br/>
+
+    <li>
+        <strong class="text-blue-500 font-bold">th:type:</strong> Establece el tipo de un campo de entrada.
+        <br>
+        <CodeComponent codeString={`
+<input th:type="text" />
+        `} language="html"/>
+        <p>Define que este campo es de tipo texto.</p>
+    </li><br/>
+
+    <li>
+        <strong class="text-blue-500 font-bold">th:value:</strong> Establece el valor de un campo de entrada.
+        <br>
+        <CodeComponent codeString={`
+<input th:value="\${valor}" type="text" />
+        `} language="html"/>
+        <p>Define el valor inicial de este campo.</p>
+    </li><br/>
+
+    <li>
+        <strong class="text-blue-500 font-bold">th:width:</strong> Establece el ancho de un elemento.
+        <br>
+        <CodeComponent codeString={`
+<img th:src="@{/imagenes/logo.png}" th:width="100" />
+        `} language="html"/>
+        <p>Define que la imagen tendrá un ancho de 100 píxeles.</p>
+    </li><br/>
+
+    <li>
+        <strong class="text-blue-500 font-bold">th:wrap:</strong> Especifica cómo se debe envolver el contenido.
+        <br>
+        <CodeComponent codeString={`
+<textarea th:wrap="soft"></textarea>
+        `} language="html"/>
+        <p>Define que el texto se envolverá automáticamente.</p>
+    </li><br/>
+</ul>
+
+    </div>
+  </div>
+</Layout>

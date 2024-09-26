@@ -1,0 +1,35 @@
+---
+import Layout from "../../../layout/Layout.astro";
+import Navbar from "../../../component/Navbar.astro";
+import Sidebar from "../../../component/Sidebar.astro";
+import Breadcrumb from "../../../component/Breadcrumb.astro";
+
+---
+
+<Layout title="DevDocs :: Thymeleaf">
+  <Navbar />
+  <Sidebar />
+  <div class="px-10 py-24 sm:ml-64">
+    <Breadcrumb links={[{ href: "/DevDocs/home", label: "Home" }, { href: "/DevDocs/thymeleaf", label: "Thymeleaf" }, { label: "Tema 01", current: true }]} />
+    <br>
+    <br>
+    <h1 class="text-4xl font-bold text-white">¿Qué es Thymeleaf?</h1>
+    <br>
+    <p class="text-white">
+        Thymeleaf es un potente motor de plantillas diseñado para aplicaciones web, que permite la generación dinámica de contenido en formato XML, XHTML y HTML5. Su versatilidad permite su uso tanto en entornos web como en aplicaciones no web, lo que lo convierte en una herramienta invaluable para desarrolladores que buscan crear interfaces de usuario interactivas y atractivas. Una de sus características más destacadas es la capacidad de procesar plantillas de forma natural; esto significa que las plantillas pueden visualizarse en un navegador web sin necesidad de ser procesadas previamente por un servidor, lo que facilita el desarrollo y la prueba de las mismas.
+    </p>
+    <br>
+    <p class="text-white">
+        Como un motor de plantillas de código abierto, Thymeleaf se ha ganado la preferencia de muchos desarrolladores en el ecosistema de Java, ya que permite la creación de vistas web de manera intuitiva. En comparación con otros motores de plantillas, como JSP (JavaServer Pages), Velocity y FreeMarker, Thymeleaf destaca por su enfoque en la sintaxis amigable y familiar de XML y HTML. Esto no solo lo hace fácil de aprender, sino que también permite a los desarrolladores aprovechar su experiencia previa en desarrollo web, haciendo que la curva de aprendizaje sea mucho más suave.
+    </p>
+    <br>
+    <p class="text-white">
+        Una de las ventajas clave de Thymeleaf es su capacidad para integrarse sin problemas con el contexto de Spring, lo que lo convierte en una elección popular para aplicaciones basadas en este framework. Además, Thymeleaf soporta la creación de plantillas con un enfoque basado en componentes, lo que permite una mejor organización y reutilización del código. Esto resulta en aplicaciones más mantenibles y escalables a medida que los proyectos crecen. En resumen, Thymeleaf no solo ofrece funcionalidades robustas para el desarrollo web, sino que también se adapta perfectamente a las necesidades y expectativas de los desarrolladores modernos.
+    </p>
+    <br>
+    <div class="flex justify-center">
+      <img src="/DevDocs/img/thymeleaf.png" alt="Thymeleaf Logo" class=""/>
+    </div>
+  </div>
+  
+</Layout>

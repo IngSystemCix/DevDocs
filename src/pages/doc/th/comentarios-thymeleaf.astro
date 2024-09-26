@@ -1,0 +1,40 @@
+---
+import Layout from "../../../layout/Layout.astro";
+import Navbar from "../../../component/Navbar.astro";
+import Sidebar from "../../../component/Sidebar.astro";
+import Breadcrumb from "../../../component/Breadcrumb.astro";
+import CodeComponent from "../../../react/CodeComponent";
+---
+
+<Layout title="DevDocs :: Thymeleaf">
+  <Navbar />
+  <Sidebar />
+  <div class="px-10 py-24 sm:ml-64">
+    <Breadcrumb links={[{ href: "/DevDocs/home", label: "Home" }, { href: "/DevDocs/thymeleaf", label: "Thymeleaf" }, { label: "Tema 07", current: true }]} />
+    <br>
+    <br>
+    <h1 class="text-4xl font-bold text-white">Comentarios Thymeleaf</h1>
+    <br>
+    <div class="space-y-4 text-white">
+      <p>En Thymeleaf, los comentarios son utilizados para insertar anotaciones dentro de las plantillas sin que se muestren en la salida final del HTML. Esta funcionalidad es útil para documentar el código, explicar secciones de la plantilla o desactivar partes del código sin eliminarlas.</p>
+      <br>
+      <h3 class="text-blue-500 font-bold">Sintaxis de Comentarios</h3>
+      <p>Thymeleaf permite dos tipos de comentarios:</p>
+      <ul>
+        <li><strong>Comentario Simple:</strong> Se utiliza con la sintaxis <code class="bg-slate-700 px-1 py-1/2 rounded-lg">&lt;!--! ... --&gt;</code> y es visible en el código fuente de la plantilla.</li>
+        <li><strong>Comentario Condicionado:</strong> Se utiliza con la sintaxis <code class="bg-slate-700 px-1 py-1/2 rounded-lg">&lt;!--/* ... */--&gt;</code> y es visible en el código fuente de la plantilla, pero no se muestra en la salida HTML.</li>
+      </ul>
+      <br>
+      <h3 class="text-blue-500 font-bold">Ejemplos de Comentarios</h3>
+      <p>A continuación, se muestran ejemplos de comentarios en Thymeleaf:</p>
+      <br>
+      <CodeComponent codeString={`
+<!--! Este es un comentario simple en Thymeleaf -->
+<div th:text="'Hola, mundo!'">Texto de ejemplo</div>
+
+<!--/* Este es un comentario condicionado en Thymeleaf */-->
+<div th:text="'Hola, mundo!'">Texto de ejemplo</div>
+    `} language="html"/>
+    </div>
+  </div>
+</Layout>

@@ -1,0 +1,51 @@
+---
+import Layout from "../../../layout/Layout.astro";
+import Navbar from "../../../component/Navbar.astro";
+import Sidebar from "../../../component/Sidebar.astro";
+import Breadcrumb from "../../../component/Breadcrumb.astro";
+
+---
+
+<Layout title="DevDocs :: Thymeleaf">
+  <Navbar />
+  <Sidebar />
+  <div class="px-10 py-24 sm:ml-64">
+    <Breadcrumb links={[{ href: "/DevDocs/home", label: "Home" }, { href: "/DevDocs/thymeleaf", label: "Thymeleaf" }, { label: "Tema 02", current: true }]} />
+    <br>
+    <br>
+    <h1 class="text-4xl font-bold text-white">Características Principales</h1>
+    <br>
+    <ul class="list-disc pl-5 space-y-4 text-white">
+      <li>
+        <strong class="font-semibold text-blue-500">Lenguaje de Plantillas Natural:</strong> Thymeleaf permite crear plantillas HTML que se pueden visualizar en el navegador incluso antes de ser procesadas por el servidor. Esto significa que los diseñadores pueden trabajar directamente con los archivos HTML.
+      </li>
+      <li>
+        <strong class="font-semibold text-blue-500">Integración con Spring:</strong> Thymeleaf se integra fácilmente con el framework Spring, lo que permite su uso en aplicaciones Spring MVC y Spring Boot.
+      </li>
+      <li>
+        <strong class="font-semibold text-blue-500">Sintaxis Limpia y Clara:</strong> Utiliza una sintaxis clara y legible, lo que facilita la comprensión y el mantenimiento del código. Se basa en atributos de HTML, por lo que es fácil de aprender para quienes ya conocen HTML.
+      </li>
+      <li>
+        <strong class="font-semibold text-blue-500">Soporte para Fragmentos:</strong> Permite definir fragmentos reutilizables de HTML que se pueden incluir en diferentes plantillas, lo que ayuda a mantener el código DRY (Don't Repeat Yourself).
+      </li>
+      <li>
+        <strong class="font-semibold text-blue-500">Internacionalización:</strong> Thymeleaf proporciona soporte incorporado para la internacionalización, permitiendo la creación de aplicaciones multilingües de manera sencilla.
+      </li>
+      <li>
+        <strong class="font-semibold text-blue-500">Condicionales y Bucles:</strong> Ofrece soporte para lógica condicional y bucles en las plantillas, lo que permite generar contenido dinámico basado en las condiciones y listas de datos.
+      </li>
+      <li>
+        <strong class="font-semibold text-blue-500">Manejo de Formularios:</strong> Thymeleaf tiene un robusto sistema para manejar formularios, incluyendo validaciones y retroalimentación visual, lo que simplifica el desarrollo de formularios complejos.
+      </li>
+      <li>
+        <strong class="font-semibold text-blue-500">Compatibilidad con JavaScript y CSS:</strong> Se puede combinar fácilmente con JavaScript y CSS, lo que permite la creación de interfaces de usuario interactivas y atractivas.
+      </li>
+      <li>
+        <strong class="font-semibold text-blue-500">Extensibilidad:</strong> Permite la creación de dialectos personalizados, lo que permite extender la funcionalidad del motor de plantillas para adaptarlo a necesidades específicas.
+      </li>
+      <li>
+        <strong class="font-semibold text-blue-500">Pruebas:</strong> Las plantillas Thymeleaf pueden ser probadas fácilmente con herramientas de prueba, lo que mejora la calidad y la fiabilidad del código.
+      </li>
+    </ul>
+  </div>
+</Layout>

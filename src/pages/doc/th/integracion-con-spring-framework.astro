@@ -1,0 +1,94 @@
+---
+import Layout from "../../../layout/Layout.astro";
+import Navbar from "../../../component/Navbar.astro";
+import Sidebar from "../../../component/Sidebar.astro";
+import Breadcrumb from "../../../component/Breadcrumb.astro";
+import CodeComponent from "../../../react/CodeComponent";
+
+---
+
+<Layout title="DevDocs :: Thymeleaf">
+  <Navbar />
+  <Sidebar />
+  <div class="px-10 py-24 sm:ml-64">
+    <Breadcrumb links={[{ href: "/DevDocs/home", label: "Home" }, { href: "/DevDocs/thymeleaf", label: "Thymeleaf" }, { label: "Tema 03", current: true }]} />
+    <br>
+    <br>
+    <h1 class="text-4xl font-bold text-white">Integración con Spring Framework</h1>
+    <br>
+    <br>
+    <div class="text-white">
+      <p>Thymeleaf es un motor de plantillas que se integra muy bien con el Spring Framework, especialmente con Spring MVC y Spring Boot. A continuación, te presento cómo configurar Thymeleaf en una aplicación Spring, y algunos ejemplos de uso.</p>
+      <br>
+      <h2 class="text-blue-500 font-bold">Configuración de Thymeleaf con Spring Boot</h2>
+<br>
+<ol>
+    <li>
+        Crear un proyecto Spring Boot: Puedes crear un nuevo proyecto Spring Boot usando 
+        <a href="https://start.spring.io/" class="text-blue-500 font-bold">Spring Initializr</a>, 
+        seleccionando las dependencias de "Spring Web" y "Thymeleaf".
+    </li>
+    <li>
+        Agregar la dependencia de Thymeleaf en el archivo 
+        <code class="bg-slate-700 px-1 py-1/2 rounded-lg">pom.xml</code>:
+        <CodeComponent codeString={`
+<dependency>
+  <groupId>org.springframework.boot</groupId>
+  <artifactId>spring-boot-starter-thymeleaf</artifactId>
+</dependency>
+        `} language="xml"/>
+    </li>
+    <li>
+        Thymeleaf espera que las plantillas HTML estén en el directorio 
+        <code class="bg-slate-700 px-1 py-1/2 rounded-lg">src/main/resources/templates</code>. 
+        Por ejemplo, puedes crear un archivo <code class="bg-slate-700 px-1 py-1/2 rounded-lg">index.html</code> en esta carpeta.
+    </li>
+    <li>
+        Crear un controlador para manejar las solicitudes HTTP. Por ejemplo, puedes crear 
+        un controlador que devuelva la plantilla <code class="bg-slate-700 px-1 py-1/2 rounded-lg">index.html</code>:
+        <CodeComponent codeString={`
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+
+@Controller
+public class HomeController {
+
+    @GetMapping("/")
+    public String home(Model model) {
+        model.addAttribute("titulo", "Página de Inicio");
+        return "index"; // Retorna la plantilla "index.html"
+    }
+}
+        `} language="java"/>
+    </li>
+    <li>
+        Aquí tienes un ejemplo simple de una plantilla Thymeleaf <code class="bg-slate-700 px-1 py-1/2 rounded-lg">index.html</code>:
+        <CodeComponent codeString={`
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <title th:text="\${titulo}">Título por Defecto</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" />
+</head>
+<body>
+    <h1 class="text-4xl font-bold text-blue-500" th:text="\${titulo}">Título por Defecto</h1>
+    <p>¡Bienvenido a la aplicación Thymeleaf con Spring!</p>
+</body>
+</html>
+        `} language="html"/>
+    </li>
+    <li>
+        Iniciar la aplicación: Ejecuta la aplicación Spring Boot. Puedes hacerlo desde tu IDE o usando el comando Maven:
+        <CodeComponent codeString={`
+mvn spring-boot:run
+        `} language="bash"/>
+    </li>
+    <li>
+        Acceder a la aplicación: Abre tu navegador y visita <code class="bg-slate-700 px-1 py-1/2 rounded-lg">http://localhost:8080/</code>. Deberías ver la página de inicio con el título que definiste en el controlador.
+    </li>
+</ol>
+
+    </div>
+  </div>
+</Layout>
