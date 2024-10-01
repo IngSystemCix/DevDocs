@@ -15,6 +15,4 @@ export default defineConfig({
   build: {
     format: 'directory', // Usar directorios en lugar de archivos .html
   },
-  output: 'server',
-  adapter: node({ mode: 'standalone' }),
 });
