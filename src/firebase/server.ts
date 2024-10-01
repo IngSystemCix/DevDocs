@@ -7,7 +7,9 @@ const serviceAccount = {
   type: "service_account",
   project_id: import.meta.env.FIREBASE_PROJECT_ID,
   private_key_id: import.meta.env.FIREBASE_PRIVATE_KEY_ID,
-  private_key: import.meta.env.FIREBASE_PRIVATE_KEY.replace(/\\n/g, '\n'),
+  private_key: import.meta.env.FIREBASE_PRIVATE_KEY
+    ? import.meta.env.FIREBASE_PRIVATE_KEY.replace(/\\n/g, '\n')
+    : (() => { throw new Error("FIREBASE_PRIVATE_KEY no está definido en las variables de entorno"); })(),
   client_email: import.meta.env.FIREBASE_CLIENT_EMAIL,
   client_id: import.meta.env.FIREBASE_CLIENT_ID,
   auth_uri: import.meta.env.FIREBASE_AUTH_URI,
@@ -18,13 +20,13 @@ const serviceAccount = {
 
 const initApp = () => {
   if (import.meta.env.PROD) {
-    console.info('PROD env detected. Using default service account.')
-    return initializeApp()
+    console.info('PROD env detected. Using default service account.');
+    return initializeApp();
   }
-  console.info('Loading service account from env.')
+  console.info('Loading service account from env.');
   return initializeApp({
-    credential: cert(serviceAccount as ServiceAccount)
-  })
-}
+    credential: cert(serviceAccount as ServiceAccount),
+  });
+};
 
 export const app = activeApps.length === 0 ? initApp() : activeApps[0];
