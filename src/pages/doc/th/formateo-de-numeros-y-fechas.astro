@@ -1,0 +1,59 @@
+---
+import Layout from "../../../layout/Layout.astro";
+import Navbar from "../../../component/Navbar.astro";
+import Sidebar from "../../../component/Sidebar.astro";
+import Breadcrumb from "../../../component/Breadcrumb.astro";
+import CodeComponent from "../../../react/CodeComponent";
+import Testimonial from "../../../component/Testimonial.astro";
+---
+
+<Layout title="DevDocs :: Thymeleaf">
+  <Navbar />
+  <Sidebar />
+  <div class="px-10 py-24 sm:ml-64">
+    <Breadcrumb links={[{ href: "/DevDocs/home", label: "Home" }, { href: "/DevDocs/thymeleaf", label: "Thymeleaf" }, { label: "Tema 12", current: true }]} />
+    <br>
+    <br>
+    <h1 class="text-4xl font-bold text-white">Formateo de Números y Fechas</h1>
+    <br>
+    <div class="space-y-4 text-white">
+      <h2 class="text-2xl font-semibold text-blue-500">1. Formateo de Números en Thymeleaf</h2>
+      <p>El formateo de números en Thymeleaf se logra utilizando la función <code class="bg-slate-700 px-1 py-1/2 rounded-lg">#numbers.formatNumber</code>, que permite mostrar números en formatos específicos según la configuración local.</p>
+      <p><strong class="font-semibold text-blue-500">Ejemplo:</strong></p>
+      <CodeComponent codeString={`
+<p th:text="#{#numbers.formatNumber(\${precio}, 2, 'COMMA', 'DOT')}"></p>
+      `} language="html" />
+      <p>En este ejemplo, se está formateando el valor de <code class="bg-slate-700 px-1 py-1/2 rounded-lg">precio</code> para mostrarlo con dos decimales y un separador de miles usando una coma (<code>,</code>) y un separador de decimales con un punto (<code>.</code>).</p>
+
+      <h2 class="text-2xl font-semibold text-blue-500">2. Formateo de Fechas en Thymeleaf</h2>
+      <p>El formateo de fechas en Thymeleaf utiliza la función <code class="bg-slate-700 px-1 py-1/2 rounded-lg">#dates.format</code>, que permite mostrar fechas en diferentes formatos.</p>
+      <p><strong class="font-semibold text-blue-500">Ejemplo:</strong></p>
+      <CodeComponent codeString={`
+<p th:text="#{#dates.format(\${fechaNacimiento}, 'dd/MM/yyyy')}"></p>
+      `} language="html" />
+      <p>En este ejemplo, la variable <code class="bg-slate-700 px-1 py-1/2 rounded-lg">fechaNacimiento</code> se muestra en formato <code class="bg-slate-700 px-1 py-1/2 rounded-lg">dd/MM/yyyy</code>, lo que la renderiza como, por ejemplo, <code>15/08/2024</code>.</p>
+
+      <h2 class="text-2xl font-semibold text-blue-500">3. Uso de <code>th:field</code> para el Formateo Automático</h2>
+      <p>Cuando trabajas con formularios, Thymeleaf automáticamente gestiona el formateo de números y fechas con el uso de <code class="bg-slate-700 px-1 py-1/2 rounded-lg">th:field</code> al estar enlazado con un atributo de tipo <code>java.util.Date</code> o <code>java.lang.Number</code> en el modelo.</p>
+      <p><strong class="font-semibold text-blue-500">Ejemplo:</strong></p>
+      <CodeComponent codeString={`
+<input type="text" th:field="*{precio}" /> <!-- Formato automático de número -->
+<input type="text" th:field="*{fechaNacimiento}" /> <!-- Formato automático de fecha -->
+      `} language="html" />
+      <p>En este caso, si la variable <code class="bg-slate-700 px-1 py-1/2 rounded-lg">precio</code> es un número, el formato aplicado automáticamente será según la configuración local del servidor. De igual manera con la fecha.</p>
+
+      <h2 class="text-2xl font-semibold text-blue-500">4. Personalización del Formateo en Thymeleaf</h2>
+      <p>Para personalizar el formato de números o fechas, es posible utilizar configuraciones específicas en el archivo de propiedades de internacionalización.</p>
+      <p><strong class="font-semibold text-blue-500">Ejemplo de archivo <code>messages.properties</code>:</strong></p>
+      <CodeComponent codeString={`
+precio.format=###,###.## €
+fechaNacimiento.format=dd MMMM yyyy
+      `} language="properties" />
+      <p>En este ejemplo, <code class="bg-slate-700 px-1 py-1/2 rounded-lg">precio.format</code> define cómo se mostrarán los precios, mientras que <code class="bg-slate-700 px-1 py-1/2 rounded-lg">fechaNacimiento.format</code> define cómo se mostrará la fecha.</p>
+
+      <Testimonial type="note" 
+      title="Nota" 
+      description="Para formatear correctamente los números y fechas en Thymeleaf, asegúrate de que tu aplicación esté configurada con la localización adecuada (por ejemplo, LocaleContextHolder en Spring)." />
+    </div>
+  </div>
+</Layout>

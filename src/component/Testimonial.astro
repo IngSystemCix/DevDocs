@@ -1,0 +1,44 @@
+---
+const { type, title, description } = Astro.props as {
+  type: 'info' | 'warning' | 'note';
+  title: string;
+  description: string;
+};
+
+// Define estilos e íconos según el tipo
+const styles = {
+  info: {
+    borderColor: 'border-blue-600',
+    backgroundColor: 'bg-blue-900/30',
+    icon: '🔔', // Icono para información
+  },
+  warning: {
+    borderColor: 'border-yellow-600',
+    backgroundColor: 'bg-yellow-900/30',
+    icon: '⚠️', // Icono de advertencia
+  },
+  note: {
+    borderColor: 'border-purple-600',
+    backgroundColor: 'bg-purple-900/30',
+    icon: '📝', // Icono para nota
+  },
+};
+
+// Selecciona el estilo correspondiente
+const currentStyle = styles[type];
+
+// Divide la descripción en líneas
+const descriptionLines = description.split('\n');
+---
+
+<div class={`mt-8 p-4 border-l-4 ${currentStyle.borderColor} ${currentStyle.backgroundColor} rounded-r-lg`}>
+  <p class="mt-2 font-bold text-gray-900 dark:text-white">
+    {currentStyle.icon} {title}
+  </p>
+  <br>
+  {descriptionLines.map(line => (
+    <p class="italic text-gray-600 dark:text-gray-300">
+      {line}
+    </p>
+  ))}
+</div>

@@ -1,0 +1,76 @@
+---
+import Layout from "../../../layout/Layout.astro";
+import Navbar from "../../../component/Navbar.astro";
+import Sidebar from "../../../component/Sidebar.astro";
+import Breadcrumb from "../../../component/Breadcrumb.astro";
+import CodeComponent from "../../../react/CodeComponent";
+import Testimonial from "../../../component/Testimonial.astro";
+---
+
+<Layout title="DevDocs :: Thymeleaf">
+  <Navbar />
+  <Sidebar />
+  <div class="px-10 py-24 sm:ml-64">
+    <Breadcrumb links={[{ href: "/DevDocs/home", label: "Home" }, { href: "/DevDocs/thymeleaf", label: "Thymeleaf" }, { label: "Tema 11", current: true }]} />
+    <br>
+    <br>
+    <h1 class="text-4xl font-bold text-white">Enlace de Datos con th:href, th:src y th:action</h1>
+    <br>
+    <div class="space-y-4 text-white">
+      <h2 class="text-2xl font-semibold text-blue-500">1. Enlace de URLs con <code class="bg-slate-700 px-1 py-1/2 rounded-lg">th:href</code></h2>
+      <p><strong class="font-semibold text-blue-500">Descripción:</strong> <code class="bg-slate-700 px-1 py-1/2 rounded-lg">th:href</code> es un atributo en Thymeleaf que te permite vincular dinámicamente URLs a enlaces <code class="bg-slate-700 px-1 py-1/2 rounded-lg">&lt;a&gt;</code>. Es útil para generar enlaces que dependen de datos dinámicos o variables del modelo.</p>
+      <CodeComponent codeString={`
+<a th:href="@{/usuarios/\${usuarioId}}">Ver Perfil</a> <!-- Genera una URL dinámica basada en el ID de usuario -->
+      `} language="html" />
+      <p>En el ejemplo anterior, si <code class="bg-slate-700 px-1 py-1/2 rounded-lg">usuarioId</code> tiene el valor de 15, el enlace se renderiza como <code>&lt;a href="/usuarios/15"&gt;Ver Perfil&lt;/a&gt;</code>.</p>
+
+      <h2 class="text-2xl font-semibold text-blue-500">2. Enlace de Imágenes con <code class="bg-slate-700 px-1 py-1/2 rounded-lg">th:src</code></h2>
+      <p><strong class="font-semibold text-blue-500">Descripción:</strong> <code class="bg-slate-700 px-1 py-1/2 rounded-lg">th:src</code> permite generar rutas dinámicas para recursos como imágenes en elementos <code class="bg-slate-700 px-1 py-1/2 rounded-lg">&lt;img&gt;</code>. Es útil cuando las imágenes cambian en función de los datos que se envían al modelo.</p>
+      <CodeComponent codeString={`
+<img th:src="@{/imagenes/\${imagenNombre}}" alt="Imagen dinámica" /> <!-- Genera una URL para cargar imágenes dinámicamente -->
+      `} language="html" />
+      <p>Si <code class="bg-slate-700 px-1 py-1/2 rounded-lg">imagenNombre</code> es "foto1.jpg", la URL generada sería <code class="bg-slate-700 px-1 py-1/2 rounded-lg">&lt;img src="/imagenes/foto1.jpg"&gt;</code>.</p>
+
+      <h2 class="text-2xl font-semibold text-blue-500">3. Enlace de Formularios con <code class="bg-slate-700 px-1 py-1/2 rounded-lg">th:action</code></h2>
+      <p><strong class="font-semibold text-blue-500">Descripción:</strong> El atributo <code class="bg-slate-700 px-1 py-1/2 rounded-lg">th:action</code> genera dinámicamente la acción de un formulario, es decir, la URL a la que se enviarán los datos del formulario. Esta URL puede ser dinámica y depender de variables del modelo.</p>
+      <CodeComponent codeString={`
+<form th:action="@{/guardarUsuario}" method="post">
+    <input type="text" name="nombre" />
+    <button type="submit">Guardar</button>
+</form>
+      `} language="html" />
+      <p>El formulario enviará los datos al endpoint <code class="bg-slate-700 px-1 py-1/2 rounded-lg">/guardarUsuario</code> cuando se haga clic en el botón "Guardar".</p>
+
+      <Testimonial type="info" 
+      title="Sintaxis de Enlace de URLs" 
+      description="En Thymeleaf, el símbolo @{} se usa para crear enlaces absolutos o relativos. Dentro de las llaves, puedes incluir variables del modelo, rutas relativas, y otras expresiones para generar dinámicamente las URLs en el HTML final." />
+
+      <h2 class="text-2xl font-semibold text-blue-500">4. Ejemplo Completo</h2>
+      <p>Aquí tienes un ejemplo completo que combina el uso de <code class="bg-slate-700 px-1 py-1/2 rounded-lg">th:href</code>, <code class="bg-slate-700 px-1 py-1/2 rounded-lg">th:src</code>, y <code class="bg-slate-700 px-1 py-1/2 rounded-lg">th:action</code>:</p>
+      <CodeComponent codeString={`
+@Controller
+public class UsuarioControlador {
+
+    @GetMapping("/perfil")
+    public String perfil(Model model) {
+        model.addAttribute("usuarioId", 15);
+        model.addAttribute("imagenNombre", "foto1.jpg");
+        return "perfil"; // Nombre de la vista Thymeleaf
+    }
+}
+      `} language="java" />
+
+      <p>En la vista Thymeleaf:</p>
+      <CodeComponent codeString={`
+<a th:href="@{/usuarios/\${usuarioId}}">Ver Perfil</a> <!-- Genera un enlace dinámico para el perfil del usuario -->
+<img th:src="@{/imagenes/\${imagenNombre}}" alt="Foto de Perfil" /> <!-- Genera una URL dinámica para la imagen -->
+<form th:action="@{/guardarUsuario}" method="post">
+    <input type="text" name="nombre" />
+    <button type="submit">Guardar</button>
+</form>
+      `} language="html" />
+
+      <p>En este ejemplo, el controlador pasa el <code>usuarioId</code> y el <code>imagenNombre</code> al modelo, y la vista Thymeleaf utiliza estas variables para generar dinámicamente los enlaces y recursos en el HTML final.</p>
+    </div>
+  </div>
+</Layout>

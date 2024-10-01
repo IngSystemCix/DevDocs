@@ -1,0 +1,74 @@
+---
+import Layout from "../../../layout/Layout.astro";
+import Navbar from "../../../component/Navbar.astro";
+import Sidebar from "../../../component/Sidebar.astro";
+import Breadcrumb from "../../../component/Breadcrumb.astro";
+import CodeComponent from "../../../react/CodeComponent";
+import Testimonial from "../../../component/Testimonial.astro";
+---
+
+<Layout title="DevDocs :: Thymeleaf">
+  <Navbar />
+  <Sidebar />
+  <div class="px-10 py-24 sm:ml-64">
+    <Breadcrumb links={[{ href: "/DevDocs/home", label: "Home" }, { href: "/DevDocs/thymeleaf", label: "Thymeleaf" }, { label: "Tema 09", current: true }]} />
+    <br>
+    <br>
+    <h1 class="text-4xl font-bold text-white">Contexto del Modelo en Spring y Thymeleaf</h1>
+    <br>
+    <div class="space-y-4 text-white">
+      <h2 class="text-2xl font-semibold text-blue-500">1. Modelo en Spring MVC</h2>
+      <p><strong class="font-semibold text-blue-500">Definición:</strong> El modelo en Spring MVC es un contenedor que transporta datos entre el controlador y la vista <strong>(en este caso, Thymeleaf)</strong>.</p>
+      <p>Uso: Los controladores de Spring pueden agregar atributos al modelo mediante el uso de <code class="bg-slate-700 px-1 py-1/2 rounded-lg">Model</code>, <code class="bg-slate-700 px-1 py-1/2 rounded-lg">ModelMap</code> o <code class="bg-slate-700 px-1 py-1/2 rounded-lg">ModelAndView</code>. Estos atributos son luego accesibles en la vista Thymeleaf.</p>
+      <CodeComponent codeString={`
+@Controller
+public class MiControlador {
+
+    @GetMapping("/ejemplo")
+    public String ejemplo(Model model) {
+        model.addAttribute("mensaje", "¡Hola, Thymeleaf!");
+        return "ejemplo"; // Nombre de la vista Thymeleaf
+    }
+}
+      `} language="java" />
+      
+      <h2 class="text-2xl font-semibold text-blue-500">2. Contexto del Modelo en Thymeleaf</h2>
+      <p><strong class="font-semibold text-blue-500">Acceso a Datos:</strong> En Thymeleaf, los atributos del modelo se pueden acceder utilizando expresiones. Por ejemplo, el atributo <code class="bg-slate-700 px-1 py-1/2 rounded-lg">mensaje</code> que se agregó en el controlador puede ser utilizado en la vista de la siguiente manera:</p>
+      <CodeComponent codeString={`<p th:text="\${mensaje}"></p> <!-- Esto renderiza "¡Hola, Thymeleaf!" -->`} language="html" />
+      <Testimonial type="note" 
+      title="Nota" 
+      description="${}: Para acceder a atributos del modelo. \n#: Para acceder a funciones de utilidades. \n@: Para acceder a beans Spring." />
+      
+      <h2 class="text-2xl font-semibold text-blue-500">3. Datos Dinámicos y Binding</h2>
+      <p><strong class="font-semibold text-blue-500">Datos Dinámicos:</strong> Thymeleaf puede mostrar datos dinámicos que provienen del modelo. Puedes utilizar atributos como <code class="bg-slate-700 px-1 py-1/2 rounded-lg">th:text</code>, <code class="bg-slate-700 px-1 py-1/2 rounded-lg">th:href</code>, <code class="bg-slate-700 px-1 py-1/2 rounded-lg">th:src</code>, etc., para vincular valores desde el modelo.</p>
+      <CodeComponent codeString={`<a th:href="@{/usuario/\${usuarioId}}">Ver Usuario</a>`} language="html" />
+      
+      <h2 class="text-2xl font-semibold text-blue-500">4. Binding de Formularios</h2>
+      <p>En el caso de formularios, puedes enlazar el modelo a un objeto. Por ejemplo:</p>
+      <CodeComponent codeString={`
+@PostMapping("/usuario")
+public String crearUsuario(@ModelAttribute Usuario usuario) {
+    // Lógica para guardar el usuario
+    return "redirect:/usuarios";
+}
+      `} language="java" />
+      <p>En la vista, puedes utilizar:</p>
+      <CodeComponent codeString={`
+<form th:action="@{/usuario}" th:object="\${usuario}" method="post">
+    <input type="text" th:field="*{nombre}" />
+    <button type="submit">Crear</button>
+</form>
+      `} language="html" />
+      
+      <h2 class="text-2xl font-semibold text-blue-500">5. Manejo de Errores</h2>
+      <p>Thymeleaf permite manejar errores de validación utilizando:</p>
+      <CodeComponent codeString={`
+<form th:action="@{/usuario}" th:object="\${usuario}" method="post">
+    <input type="text" th:field="*{nombre}" />
+    <div th:if="\${#fields.hasErrors('nombre')}" th:errors="*{nombre}">Error en nombre</div>
+    <button type="submit">Crear</button>
+</form>
+      `} language="html" />
+    </div>
+  </div>
+</Layout>

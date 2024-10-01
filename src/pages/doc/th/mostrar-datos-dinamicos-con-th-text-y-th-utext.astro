@@ -1,0 +1,61 @@
+---
+import Layout from "../../../layout/Layout.astro";
+import Navbar from "../../../component/Navbar.astro";
+import Sidebar from "../../../component/Sidebar.astro";
+import Breadcrumb from "../../../component/Breadcrumb.astro";
+import CodeComponent from "../../../react/CodeComponent";
+import Testimonial from "../../../component/Testimonial.astro";
+---
+
+<Layout title="DevDocs :: Thymeleaf">
+  <Navbar />
+  <Sidebar />
+  <div class="px-10 py-24 sm:ml-64">
+    <Breadcrumb links={[{ href: "/DevDocs/home", label: "Home" }, { href: "/DevDocs/thymeleaf", label: "Thymeleaf" }, { label: "Tema 10", current: true }]} />
+    <br>
+    <br>
+    <h1 class="text-4xl font-bold text-white">Mostrar Datos Dinámicos con th:text y th:utext</h1>
+    <br>
+    <div class="space-y-4 text-white">
+      <h2 class="text-2xl font-semibold text-blue-500">1. Uso de <code>th:text</code></h2>
+      <p><strong class="font-semibold text-blue-500">Descripción:</strong> <code class="bg-slate-700 px-1 py-1/2 rounded-lg">th:text</code> es un atributo de Thymeleaf que se utiliza para mostrar datos dinámicos de forma segura, es decir, escapando automáticamente caracteres peligrosos para evitar ataques XSS (cross-site scripting).</p>
+      <p>Cuando utilizas <code>th:text</code>, los datos se renderizan como texto, y cualquier contenido HTML dentro de los datos será escapado.</p>
+      <CodeComponent codeString={`
+<p th:text="\${mensaje}">Texto por defecto</p> <!-- Esto mostrará el valor del atributo "mensaje" -->
+      `} language="html" />
+      <p>Por ejemplo, si el valor de <code class="bg-slate-700 px-1 py-1/2 rounded-lg">mensaje</code> es <code class="bg-slate-700 px-1 py-1/2 rounded-lg">"Hola, <strong>Mundo</strong>"</code>, el navegador lo renderizará como <code class="bg-slate-700 px-1 py-1/2 rounded-lg">Hola, &lt;strong&gt;Mundo&lt;/strong&gt;</code>, mostrando el texto sin formato.</p>
+
+      <h2 class="text-2xl font-semibold text-blue-500">2. Uso de <code class="bg-slate-700 px-1 py-1/2 rounded-lg">th:utext</code></h2>
+      <p><strong class="font-semibold text-blue-500">Descripción:</strong> <code class="bg-slate-700 px-1 py-1/2 rounded-lg">th:utext</code> es similar a <code class="bg-slate-700 px-1 py-1/2 rounded-lg">th:text</code>, pero permite que el contenido HTML dentro de los datos dinámicos se renderice sin ser escapado. Se debe usar con precaución, ya que puede introducir vulnerabilidades de seguridad si los datos no son confiables.</p>
+      <CodeComponent codeString={`
+<p th:utext="\${mensajeHTML}">Texto por defecto</p> <!-- Esto mostrará el contenido HTML dentro de "mensajeHTML" -->
+      `} language="html" />
+      <p>Si el valor de <code class="bg-slate-700 px-1 py-1/2 rounded-lg">mensajeHTML</code> es <code class="bg-slate-700 px-1 py-1/2 rounded-lg">"Hola, <strong>Mundo</strong>"</code>, el navegador lo renderizará correctamente como HTML, mostrando "Hola, <strong>Mundo</strong>" en negrita.</p>
+
+      <Testimonial type="warning" 
+      title="Precaución" 
+      description="Utiliza <code>th:utext</code> únicamente cuando estás seguro de que los datos HTML que estás mostrando son confiables y no provienen de usuarios externos. De lo contrario, puedes exponer tu aplicación a ataques XSS." />
+
+      <h2 class="text-2xl font-semibold text-blue-500">3. Ejemplo Completo</h2>
+      <p>Aquí tienes un ejemplo completo de cómo se utilizan <code class="bg-slate-700 px-1 py-1/2 rounded-lg">th:text</code> y <code>th:utext</code>:</p>
+      <CodeComponent codeString={`
+@Controller
+public class MiControlador {
+
+    @GetMapping("/ejemplo")
+    public String ejemplo(Model model) {
+        model.addAttribute("mensaje", "Hola, <strong>Mundo</strong>");
+        model.addAttribute("mensajeHTML", "Hola, <strong>Mundo</strong>");
+        return "ejemplo"; // Nombre de la vista Thymeleaf
+    }
+}
+      `} language="java" />
+
+      <p>En la vista Thymeleaf, se renderizarían los datos dinámicos así:</p>
+      <CodeComponent codeString={`
+<p th:text="\${mensaje}"></p> <!-- Mostrará "Hola, &lt;strong&gt;Mundo&lt;/strong&gt;" -->
+<p th:utext="\${mensajeHTML}"></p> <!-- Mostrará "Hola, <strong>Mundo</strong>" en HTML -->
+      `} language="html" />
+    </div>
+  </div>
+</Layout>
