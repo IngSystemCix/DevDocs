@@ -1,0 +1,102 @@
+---
+import Layout from "../layout/Layout.astro";
+import Navbar from "../component/Navbar.astro";
+import Sidebar from "../component/Sidebar.astro";
+import Breadcrumb from "../component/Breadcrumb.astro";
+import Accordion from "../component/Accordion.astro";
+
+const temarioApacheCommons = [
+  {
+    title: "Introducción a Apache Commons",
+    content: [
+      { name: "¿Qué es Apache Commons?", link: "#" },
+      { name: "Historia y propósito", link: "#" },
+      { name: "Componentes principales", link: "#" }
+    ],
+  },
+  {
+    title: "Commons Lang",
+    content: [
+      { name: "Manipulación de Strings", link: "#" },
+      { name: "Manejo de números y fechas", link: "#" },
+      { name: "Utilidades para objetos", link: "#" }
+    ],
+  },
+  {
+    title: "Commons IO",
+    content: [
+      { name: "Lectura y escritura de archivos", link: "#" },
+      { name: "Monitorización de directorios", link: "#" },
+      { name: "Filtración de archivos", link: "#" }
+    ],
+  },
+  {
+    title: "Commons Collections",
+    content: [
+      { name: "Extensiones para colecciones", link: "#" },
+      { name: "Tipos avanzados de colecciones", link: "#" },
+      { name: "Filtros y transformadores", link: "#" }
+    ],
+  },
+  {
+    title: "Commons BeanUtils",
+    content: [
+      { name: "Manipulación de JavaBeans", link: "#" },
+      { name: "Copiado de propiedades", link: "#" },
+      { name: "Expresión de lenguaje (PropertyUtils)", link: "#" }
+    ],
+  },
+  {
+    title: "Commons Configuration",
+    content: [
+      { name: "Gestión de configuraciones", link: "#" },
+      { name: "Soporte para XML, JSON y más", link: "#" },
+      { name: "Recarga dinámica de configuraciones", link: "#" }
+    ],
+  },
+  {
+    title: "Commons Validator",
+    content: [
+      { name: "Validación de datos comunes", link: "#" },
+      { name: "Uso de XML para reglas de validación", link: "#" },
+      { name: "Validadores personalizados", link: "#" }
+    ],
+  },
+  {
+    title: "Commons FileUpload",
+    content: [
+      { name: "Subida de archivos en aplicaciones web", link: "#" },
+      { name: "Configuración de límites y restricciones", link: "#" },
+      { name: "Gestión de archivos grandes", link: "#" }
+    ],
+  },
+  {
+    title: "Integración y Mejores Prácticas",
+    content: [
+      { name: "Integración con frameworks populares", link: "#" },
+      { name: "Optimización y rendimiento", link: "#" },
+      { name: "Buenas prácticas de uso", link: "#" }
+    ],
+  },
+  {
+    title: "Recursos Adicionales",
+    content: [
+      { name: "Documentación oficial de Apache Commons", link: "https://commons.apache.org/" },
+      { name: "Tutoriales y ejemplos", link: "#" },
+      { name: "Comunidad y soporte", link: "#" }
+    ],
+  }
+];
+
+---
+
+<Layout title="DevDocs :: Apache Commons">
+  <Navbar />
+  <Sidebar />
+  <div class="py-32 px-10 md:px-20 md:py-32 sm:ml-72">
+    <Breadcrumb links={[{ href: "/DevDocs/home", label: "Home" }, { label: "Apache Commons", current: true }]} />
+    <br>
+    <br>
+    <Accordion temario={temarioApacheCommons} />
+  </div>
+</Layout>

@@ -1,0 +1,102 @@
+---
+import Layout from "../layout/Layout.astro";
+import Navbar from "../component/Navbar.astro";
+import Sidebar from "../component/Sidebar.astro";
+import Breadcrumb from "../component/Breadcrumb.astro";
+import Accordion from "../component/Accordion.astro";
+
+const temarioBashScripting = [
+  {
+    title: "Introducción a Bash Scripting",
+    content: [
+      { name: "¿Qué es Bash?", link: "#" },
+      { name: "Historia y usos comunes", link: "#" },
+      { name: "Configuración del entorno", link: "#" }
+    ],
+  },
+  {
+    title: "Conceptos Básicos de Bash",
+    content: [
+      { name: "Sintaxis básica", link: "#" },
+      { name: "Variables y tipos de datos", link: "#" },
+      { name: "Operadores y expresiones", link: "#" }
+    ],
+  },
+  {
+    title: "Estructuras de Control",
+    content: [
+      { name: "Condicionales (if, else, elif)", link: "#" },
+      { name: "Bucles (for, while, until)", link: "#" },
+      { name: "Sentencias case", link: "#" }
+    ],
+  },
+  {
+    title: "Gestión de Archivos y Directorios",
+    content: [
+      { name: "Comandos básicos (ls, cd, pwd, etc.)", link: "#" },
+      { name: "Creación y manipulación de archivos", link: "#" },
+      { name: "Permisos y propiedad", link: "#" }
+    ],
+  },
+  {
+    title: "Funciones y Scripts Avanzados",
+    content: [
+      { name: "Definición y uso de funciones", link: "#" },
+      { name: "Parámetros y argumentos", link: "#" },
+      { name: "Gestión de errores y depuración", link: "#" }
+    ],
+  },
+  {
+    title: "Automatización de Tareas",
+    content: [
+      { name: "Uso de cron y at", link: "#" },
+      { name: "Automatización de backups", link: "#" },
+      { name: "Integración con otras herramientas", link: "#" }
+    ],
+  },
+  {
+    title: "Manejo de Entradas y Salidas",
+    content: [
+      { name: "Redirección de entradas y salidas", link: "#" },
+      { name: "Pipes y filtros", link: "#" },
+      { name: "Uso de stdin, stdout y stderr", link: "#" }
+    ],
+  },
+  {
+    title: "Trabajando con Procesos",
+    content: [
+      { name: "Gestión de procesos en Bash", link: "#" },
+      { name: "Ejecución en segundo plano", link: "#" },
+      { name: "Señales y manejo de procesos", link: "#" }
+    ],
+  },
+  {
+    title: "Mejores Prácticas y Optimización",
+    content: [
+      { name: "Escritura de scripts legibles y modulares", link: "#" },
+      { name: "Optimización de scripts", link: "#" },
+      { name: "Documentación y comentarios", link: "#" }
+    ],
+  },
+  {
+    title: "Recursos Adicionales",
+    content: [
+      { name: "Documentación oficial de Bash", link: "https://www.gnu.org/software/bash/manual/" },
+      { name: "Tutoriales y ejemplos prácticos", link: "#" },
+      { name: "Comunidad y soporte", link: "#" }
+    ],
+  }
+];
+
+---
+
+<Layout title="DevDocs :: Bash Scripting">
+  <Navbar />
+  <Sidebar />
+  <div class="py-32 px-10 md:px-20 md:py-32 sm:ml-72">
+    <Breadcrumb links={[{ href: "/DevDocs/home", label: "Home" }, { label: "Bash Scripting", current: true }]} />
+    <br>
+    <br>
+    <Accordion temario={temarioBashScripting} />
+  </div>
+</Layout>

@@ -1,0 +1,94 @@
+---
+import Layout from "../layout/Layout.astro";
+import Navbar from "../component/Navbar.astro";
+import Sidebar from "../component/Sidebar.astro";
+import Breadcrumb from "../component/Breadcrumb.astro";
+import Accordion from "../component/Accordion.astro";
+
+const temarioApachePOI = [
+  {
+    title: "Introducción a Apache POI",
+    content: [
+      { name: "¿Qué es Apache POI?", link: "#" },
+      { name: "Historia y propósito", link: "#" },
+      { name: "Formatos soportados (HSSF, XSSF, etc.)", link: "#" }
+    ],
+  },
+  {
+    title: "Manejo de Hojas de Cálculo (Excel)",
+    content: [
+      { name: "Lectura de archivos Excel", link: "#" },
+      { name: "Escritura de archivos Excel", link: "#" },
+      { name: "Manipulación de celdas y estilos", link: "#" }
+    ],
+  },
+  {
+    title: "Trabajando con Documentos de Word",
+    content: [
+      { name: "Lectura de documentos DOC y DOCX", link: "#" },
+      { name: "Creación de documentos Word", link: "#" },
+      { name: "Manipulación de tablas e imágenes", link: "#" }
+    ],
+  },
+  {
+    title: "Manejo de Presentaciones (PowerPoint)",
+    content: [
+      { name: "Lectura y escritura de archivos PPT y PPTX", link: "#" },
+      { name: "Añadir diapositivas y contenido", link: "#" },
+      { name: "Uso de estilos y animaciones", link: "#" }
+    ],
+  },
+  {
+    title: "Manejo de PDFs (POI-Tika)",
+    content: [
+      { name: "Extracción de texto de PDFs", link: "#" },
+      { name: "Conversión entre formatos", link: "#" },
+      { name: "Limitaciones y mejores prácticas", link: "#" }
+    ],
+  },
+  {
+    title: "Funciones Avanzadas de Apache POI",
+    content: [
+      { name: "Uso de formularios y macros", link: "#" },
+      { name: "Integración con bases de datos", link: "#" },
+      { name: "Manipulación de gráficos y diagramas", link: "#" }
+    ],
+  },
+  {
+    title: "Optimización y Rendimiento",
+    content: [
+      { name: "Manejo de grandes volúmenes de datos", link: "#" },
+      { name: "Minimización del uso de memoria", link: "#" },
+      { name: "Buenas prácticas para rendimiento", link: "#" }
+    ],
+  },
+  {
+    title: "Integración con Otras Herramientas",
+    content: [
+      { name: "Integración con Spring Boot", link: "#" },
+      { name: "Uso en aplicaciones web", link: "#" },
+      { name: "Generación dinámica de documentos", link: "#" }
+    ],
+  },
+  {
+    title: "Recursos Adicionales",
+    content: [
+      { name: "Documentación oficial de Apache POI", link: "https://poi.apache.org/" },
+      { name: "Tutoriales y ejemplos", link: "#" },
+      { name: "Comunidad y soporte", link: "#" }
+    ],
+  }
+];
+
+---
+
+<Layout title="DevDocs :: Apache POI">
+  <Navbar />
+  <Sidebar />
+  <div class="py-32 px-10 md:px-20 md:py-32 sm:ml-72">
+    <Breadcrumb links={[{ href: "/DevDocs/home", label: "Home" }, { label: "Apache POI", current: true }]} />
+    <br>
+    <br>
+    <Accordion temario={temarioApachePOI} />
+  </div>
+</Layout>

@@ -1,0 +1,102 @@
+---
+import Layout from "../layout/Layout.astro";
+import Navbar from "../component/Navbar.astro";
+import Sidebar from "../component/Sidebar.astro";
+import Breadcrumb from "../component/Breadcrumb.astro";
+import Accordion from "../component/Accordion.astro";
+
+const temarioJenkins = [
+  {
+    title: "Introducción a Jenkins",
+    content: [
+      { name: "¿Qué es Jenkins?", link: "#" },
+      { name: "Historia y evolución", link: "#" },
+      { name: "Arquitectura básica", link: "#" }
+    ],
+  },
+  {
+    title: "Instalación y Configuración",
+    content: [
+      { name: "Requisitos previos", link: "#" },
+      { name: "Instalación en diferentes plataformas", link: "#" },
+      { name: "Configuración inicial", link: "#" }
+    ],
+  },
+  {
+    title: "Conceptos Básicos de Jenkins",
+    content: [
+      { name: "Jobs y pipelines", link: "#" },
+      { name: "Plugins esenciales", link: "#" },
+      { name: "Gestión de usuarios y roles", link: "#" }
+    ],
+  },
+  {
+    title: "Automatización con Pipelines",
+    content: [
+      { name: "Introducción a pipelines declarativos", link: "#" },
+      { name: "Creación de pipelines", link: "#" },
+      { name: "Uso de scripts Groovy", link: "#" }
+    ],
+  },
+  {
+    title: "Integración Continua",
+    content: [
+      { name: "Definición y beneficios", link: "#" },
+      { name: "Configuración de builds automáticos", link: "#" },
+      { name: "Notificaciones y reportes", link: "#" }
+    ],
+  },
+  {
+    title: "Entrega Continua y Despliegue",
+    content: [
+      { name: "Conceptos de CD", link: "#" },
+      { name: "Integración con herramientas de despliegue", link: "#" },
+      { name: "Pipeline de despliegue completo", link: "#" }
+    ],
+  },
+  {
+    title: "Gestión y Monitoreo",
+    content: [
+      { name: "Monitoreo de jobs", link: "#" },
+      { name: "Gestión de logs", link: "#" },
+      { name: "Escalabilidad y alta disponibilidad", link: "#" }
+    ],
+  },
+  {
+    title: "Mejores Prácticas",
+    content: [
+      { name: "Estructuración de pipelines", link: "#" },
+      { name: "Seguridad en Jenkins", link: "#" },
+      { name: "Optimización del rendimiento", link: "#" }
+    ],
+  },
+  {
+    title: "Integración con Herramientas Externas",
+    content: [
+      { name: "Git y sistemas de control de versiones", link: "#" },
+      { name: "Integración con Docker", link: "#" },
+      { name: "Uso con Kubernetes", link: "#" }
+    ],
+  },
+  {
+    title: "Recursos Adicionales",
+    content: [
+      { name: "Documentación oficial de Jenkins", link: "https://www.jenkins.io/doc/" },
+      { name: "Tutoriales y ejemplos", link: "#" },
+      { name: "Comunidad y soporte", link: "#" }
+    ],
+  }
+];
+
+---
+
+<Layout title="DevDocs :: Jenkins">
+  <Navbar />
+  <Sidebar />
+  <div class="py-32 px-10 md:px-20 md:py-32 sm:ml-72">
+    <Breadcrumb links={[{ href: "/DevDocs/home", label: "Home" }, { label: "Jenkins", current: true }]} />
+    <br>
+    <br>
+    <Accordion temario={temarioJenkins} />
+  </div>
+</Layout>

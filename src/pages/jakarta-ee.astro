@@ -1,0 +1,101 @@
+---
+import Layout from "../layout/Layout.astro";
+import Navbar from "../component/Navbar.astro";
+import Sidebar from "../component/Sidebar.astro";
+import Breadcrumb from "../component/Breadcrumb.astro";
+import Accordion from "../component/Accordion.astro";
+
+const temarioJakartaEE = [
+  {
+    title: "Introducción a Jakarta EE",
+    content: [
+      { name: "¿Qué es Jakarta EE?", link: "#" },
+      { name: "Historia y evolución de Jakarta EE", link: "#" },
+      { name: "Arquitectura básica de Jakarta EE", link: "#" }
+    ],
+  },
+  {
+    title: "Instalación y Configuración",
+    content: [
+      { name: "Requisitos previos para Jakarta EE", link: "#" },
+      { name: "Instalación en diferentes plataformas", link: "#" },
+      { name: "Configuración inicial de un servidor Jakarta EE", link: "#" }
+    ],
+  },
+  {
+    title: "Conceptos Básicos de Jakarta EE",
+    content: [
+      { name: "Servicios y contenedores de Jakarta EE", link: "#" },
+      { name: "JAX-RS y JAX-WS", link: "#" },
+      { name: "Arquitectura de aplicaciones empresariales", link: "#" }
+    ],
+  },
+  {
+    title: "Desarrollo de Servlets",
+    content: [
+      { name: "Introducción a Servlets", link: "#" },
+      { name: "Creación de un Servlet", link: "#" },
+      { name: "Manejo de peticiones y respuestas HTTP", link: "#" }
+    ],
+  },
+  {
+    title: "Persistencia con Jakarta EE",
+    content: [
+      { name: "Uso de JPA (Jakarta Persistence API)", link: "#" },
+      { name: "Gestión de entidades y relaciones", link: "#" },
+      { name: "Consultas JPQL y Criteria API", link: "#" }
+    ],
+  },
+  {
+    title: "Transacciones y Seguridad",
+    content: [
+      { name: "Manejo de transacciones en Jakarta EE", link: "#" },
+      { name: "Configuración de seguridad con Jakarta Security", link: "#" },
+      { name: "Autenticación y autorización", link: "#" }
+    ],
+  },
+  {
+    title: "Integración con Bases de Datos",
+    content: [
+      { name: "Conexión con bases de datos", link: "#" },
+      { name: "Gestión de conexiones con DataSource", link: "#" },
+      { name: "Uso de JDBC con Jakarta EE", link: "#" }
+    ],
+  },
+  {
+    title: "Desarrollo de EJBs (Enterprise JavaBeans)",
+    content: [
+      { name: "Introducción a EJB", link: "#" },
+      { name: "Sesiones EJB", link: "#" },
+      { name: "EJB como servicio remoto", link: "#" }
+    ],
+  },
+  {
+    title: "Microservicios con Jakarta EE",
+    content: [
+      { name: "Conceptos de microservicios", link: "#" },
+      { name: "Desarrollo de microservicios con Jakarta EE", link: "#" },
+      { name: "Despliegue de microservicios en contenedores", link: "#" }
+    ],
+  },
+  {
+    title: "Recursos Adicionales",
+    content: [
+      { name: "Documentación oficial de Jakarta EE", link: "https://jakarta.ee/" },
+      { name: "Tutoriales y ejemplos", link: "#" },
+      { name: "Comunidad y soporte", link: "#" }
+    ],
+  }
+];
+---
+
+<Layout title="DevDocs :: Jakarta EE">
+  <Navbar />
+  <Sidebar />
+  <div class="py-32 px-10 md:px-20 md:py-32 sm:ml-72">
+    <Breadcrumb links={[{ href: "/DevDocs/home", label: "Home" }, { label: "Jakarta EE", current: true }]} />
+    <br>
+    <br>
+    <Accordion temario={temarioJakartaEE} />
+  </div>
+</Layout>

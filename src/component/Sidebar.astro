@@ -4,58 +4,98 @@ const listButton = [
   {
     name: 'Inicio',
     icon: '/DevDocs/ico/home.svg',
-    href: '/DevDocs/home'
+    href: '/DevDocs/home',
+    new: false
   },
   {
     name: 'Thymeleaf',
     icon: '/DevDocs/ico/thymeleaf.svg',
-    href: '/DevDocs/thymeleaf'
+    href: '/DevDocs/thymeleaf',
+    new: false
   },
   {
     name: 'Spring Boot',
     icon: '/DevDocs/ico/spring-boot.svg',
-    href: '/DevDocs/spring-boot'
+    href: '/DevDocs/spring-boot',
+    new: false
   },
   {
     name: 'React',
     icon: '/DevDocs/ico/react.svg',
-    href: '/DevDocs/react'
+    href: '/DevDocs/react',
+    new: false
   },
   {
     name: 'Angular',
     icon: '/DevDocs/ico/angular.svg',
-    href: '/DevDocs/angular'
+    href: '/DevDocs/angular',
+    new: false
   },
   {
     name: 'Astro',
     icon: '/DevDocs/ico/astro.svg',
-    href: '/DevDocs/astro'
+    href: '/DevDocs/astro',
+    new: false
   },
   {
     name: 'Bootstrap',
     icon: '/DevDocs/ico/bootstrap.svg',
-    href: '/DevDocs/bootstrap'
+    href: '/DevDocs/bootstrap',
+    new: false
   },
   {
     name: 'Tailwind CSS',
     icon: '/DevDocs/ico/tailwindcss.svg',
-    href: '/DevDocs/tailwindcss'
+    href: '/DevDocs/tailwindcss',
+    new: false
   },
   {
     name: 'Sass',
     icon: '/DevDocs/ico/sass.svg',
-    href: '/DevDocs/sass'
+    href: '/DevDocs/sass',
+    new: false
   },
   {
     name: 'TypeScript',
     icon: '/DevDocs/ico/typescript.svg',
-    href: '/DevDocs/typescript'
+    href: '/DevDocs/typescript',
+    new: false
+  },
+  {
+    name: 'Apache Commons',
+    icon: '/DevDocs/ico/apache_commons.svg',
+    href: '/DevDocs/Apache-Commons',
+    new: true
+  },
+  {
+    name: 'Apache POI',
+    icon: '/DevDocs/ico/apache_poi.svg',
+    href: '/DevDocs/Apache-POI',
+    new: true
+  },
+  {
+    name: 'Bash Scripting',
+    icon: '/DevDocs/ico/bash.svg',
+    href: '/DevDocs/bash',
+    new: true
+  },
+  {
+    name: 'Jenkins',
+    icon: '/DevDocs/ico/jenkins.svg',
+    href: '/DevDocs/jenkins',
+    new: true
+  },
+  {
+    name: 'Jakarta EE',
+    icon: '/DevDocs/ico/jakartaee.svg',
+    href: '/DevDocs/jakarta-ee',
+    new: true
   }
 ]
 
 ---
 
-<aside id="logo-sidebar" class="fixed top-0 left-0 z-40 w-64 h-screen pt-24 transition-transform -translate-x-full bg-white border-r border-gray-200 sm:translate-x-0 dark:bg-gray-800 dark:border-gray-700" aria-label="Sidebar">
+<aside id="logo-sidebar" class="fixed top-0 left-0 z-40 w-72 h-screen pt-24 transition-transform -translate-x-full bg-white border-r border-gray-200 sm:translate-x-0 dark:bg-gray-800 dark:border-gray-700" aria-label="Sidebar">
   <div class="h-full px-3 pb-4 overflow-y-auto bg-white dark:bg-gray-800">
      <ul class="space-y-2 font-medium">
         {
@@ -64,6 +104,7 @@ const listButton = [
               <a href={button.href} class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
                 <img src={button.icon} alt={`${button.name} icon`} class="w-5 h-5" />
                 <span class="ms-3">{ button.name }</span>
+                {button.new && <span class="ms-auto px-2 text-center text-xs text-white bg-red-500 rounded-full font-bold uppercase animate-pulse">New</span>}
               </a>
             </li>
           ))
