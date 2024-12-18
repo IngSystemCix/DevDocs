@@ -1,9 +1,92 @@
 ---
 import Layout from "../layout/Layout.astro";
 import Junbotron from "../component/Jumbotron.astro";
-
 ---
 
 <Layout title="DevDocs">
+	<canvas id="snowCanvas" class="block fixed top-0 left-0 w-full h-full"></canvas>
 	<Junbotron title="DevDocs" description="DevDocs es una plataforma de documentación para desarrolladores que ofrece guías y referencias sobre lenguajes de programación, preprocesadores, frameworks y herramientas modernas, facilitando el acceso rápido a información clave para el desarrollo de proyectos." href="/DevDocs/home/"/>
 </Layout>
+
+<script is:raw>
+  const canvas = document.getElementById("snowCanvas");
+  const ctx = canvas.getContext("2d");
+
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+
+  const snowflakes = [];
+
+  // Clase para crear copos de nieve
+  class Snowflake {
+    constructor(x, y, radius, speedX, speedY) {
+      this.x = x;
+      this.y = y;
+      this.radius = radius;
+      this.speedX = speedX;
+      this.speedY = speedY;
+    }
+
+    // Dibujar copo
+    draw() {
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+      ctx.fillStyle = "white";
+      ctx.fill();
+      ctx.closePath();
+    }
+
+    // Actualizar posición
+    update() {
+      this.x += this.speedX;
+      this.y += this.speedY;
+
+      // Reaparecer en la parte superior si cae fuera de la pantalla
+      if (this.y > canvas.height) {
+        this.y = -this.radius;
+        this.x = Math.random() * canvas.width;
+      }
+
+      if (this.x > canvas.width || this.x < 0) {
+        this.x = Math.random() * canvas.width;
+      }
+    }
+  }
+
+  // Crear copos de nieve
+  function createSnowflakes(count) {
+    for (let i = 0; i < count; i++) {
+      const radius = Math.random() * 3 + 1; // Tamaño del copo
+      const x = Math.random() * canvas.width;
+      const y = Math.random() * canvas.height;
+      const speedX = Math.random() * 1 - 0.5; // Movimiento horizontal
+      const speedY = Math.random() * 2 + 1;   // Velocidad de caída
+
+      snowflakes.push(new Snowflake(x, y, radius, speedX, speedY));
+    }
+  }
+
+  // Animación
+  function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    snowflakes.forEach(snowflake => {
+      snowflake.update();
+      snowflake.draw();
+    });
+
+    requestAnimationFrame(animate);
+  }
+
+  // Ajustar tamaño del canvas al redimensionar la ventana
+  window.addEventListener("resize", () => {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    snowflakes.length = 0;
+    createSnowflakes(200); // Recrear copos de nieve
+  });
+
+  // Inicializar
+  createSnowflakes(200);
+  animate();
+</script>
