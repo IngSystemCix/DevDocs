@@ -3,6 +3,7 @@ import Layout from "../layout/Layout.astro";
 import Navbar from "../component/Navbar.astro";
 import Sidebar from "../component/Sidebar.astro";
 import Slider from "../component/Slider.astro";
+import ReleaseSection from "../component/ReleaseSection.astro";
 ---
 
 <Layout title="DevDocs :: Home">
@@ -44,6 +45,9 @@ import Slider from "../component/Slider.astro";
         Únete a miles de desarrolladores que utilizan DevDocs a diario.
       </p>
     </div>
+
+    <ReleaseSection />
+    
     <!-- <form action="/DevDocs/api/DevDocs" method="post" class="w-full flex justify-center items-center gap-6">
       <div class="w-full">
         <label for="input-group-1" class="block mb-2 text-sm text-blue-500 font-bold">Recibe novedades</label>
