@@ -1,13 +1,20 @@
 ---
 const releases = [
   {
-    version: '1.1.0',
-    date: '12 de diciembre de 2024',
+    version: '1.2.0',
+    date: '18 de diciembre de 2024',
     features: [
       'Mejoras en la interfaz de usuario',
-      'Optimización de rendimiento',
       'Corrección de errores menores',
       'Implementación de nuevas funcionalidades',
+    ],
+  },
+  {
+    version: '1.1.0',
+    date: '14 de octubre de 2024',
+    features: [
+      'Se implemento los espacios de codificación',
+      'Corrección de errores menores',
     ],
   },
   {
@@ -27,20 +34,18 @@ const releases = [
     <h2 class="text-4xl font-bold mb-8">Nuestros Últimos Releases</h2>
     <p class="text-lg mb-12">Mantente al tanto de las últimas actualizaciones y mejoras en nuestra plataforma.</p>
 
-    <div class="space-y-8">
-      <div class="flex justify-center space-x-4">
-        {releases.map((release) => (
-          <div class="bg-white text-gray-900 p-6 rounded-lg shadow-lg max-w-sm w-full">
-            <h3 class="text-2xl font-semibold mb-3">{release.version}</h3>
-            <p class="text-sm text-gray-500 mb-4">Lanzada el {release.date}</p>
-            <ul class="list-disc pl-5 space-y-2 text-left">
-              {release.features.map((feature) => (
-                <li>{feature}</li>
-              ))}
-            </ul>
-          </div>
-        ))}
-      </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {releases.map((release) => (
+        <div class="bg-white text-gray-900 p-6 rounded-lg shadow-lg">
+          <h3 class="text-2xl font-semibold mb-3">{release.version}</h3>
+          <p class="text-sm text-gray-500 mb-4">Lanzada el {release.date}</p>
+          <ul class="list-disc pl-5 space-y-2 text-left">
+            {release.features.map((feature) => (
+              <li>{feature}</li>
+            ))}
+          </ul>
+        </div>
+      ))}
     </div>
   </div>
 </section>
