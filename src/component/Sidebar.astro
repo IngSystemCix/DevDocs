@@ -1,132 +1,79 @@
 ---
-
-const listButton = [
-  {
-    name: 'Inicio',
-    icon: '/DevDocs/ico/home.svg',
-    href: '/DevDocs/home',
-    new: false
-  },
-  {
-    name: 'Thymeleaf',
-    icon: '/DevDocs/ico/thymeleaf.svg',
-    href: '/DevDocs/thymeleaf',
-    new: false
-  },
-  {
-    name: 'Spring Boot',
-    icon: '/DevDocs/ico/spring-boot.svg',
-    href: '/DevDocs/spring-boot',
-    new: false
-  },
-  {
-    name: 'React',
-    icon: '/DevDocs/ico/react.svg',
-    href: '/DevDocs/react',
-    new: false
-  },
-  {
-    name: 'Angular',
-    icon: '/DevDocs/ico/angular.svg',
-    href: '/DevDocs/angular',
-    new: false
-  },
-  {
-    name: 'Astro',
-    icon: '/DevDocs/ico/astro.svg',
-    href: '/DevDocs/astro',
-    new: false
-  },
-  {
-    name: 'Bootstrap',
-    icon: '/DevDocs/ico/bootstrap.svg',
-    href: '/DevDocs/bootstrap',
-    new: false
-  },
-  {
-    name: 'Tailwind CSS',
-    icon: '/DevDocs/ico/tailwindcss.svg',
-    href: '/DevDocs/tailwindcss',
-    new: false
-  },
-  {
-    name: 'Sass',
-    icon: '/DevDocs/ico/sass.svg',
-    href: '/DevDocs/sass',
-    new: false
-  },
-  {
-    name: 'TypeScript',
-    icon: '/DevDocs/ico/typescript.svg',
-    href: '/DevDocs/typescript',
-    new: false
-  },
-  {
-    name: 'Apache Commons',
-    icon: '/DevDocs/ico/apache_commons.svg',
-    href: '/DevDocs/Apache-Commons',
-    new: true
-  },
-  {
-    name: 'Apache POI',
-    icon: '/DevDocs/ico/apache_poi.svg',
-    href: '/DevDocs/Apache-POI',
-    new: true
-  },
-  {
-    name: 'Bash Scripting',
-    icon: '/DevDocs/ico/bash.svg',
-    href: '/DevDocs/bash',
-    new: true
-  },
-  {
-    name: 'Jenkins',
-    icon: '/DevDocs/ico/jenkins.svg',
-    href: '/DevDocs/jenkins',
-    new: true
-  },
-  {
-    name: 'Jakarta EE',
-    icon: '/DevDocs/ico/jakartaee.svg',
-    href: '/DevDocs/jakarta-ee',
-    new: true
-  },
-  {
-    name: 'Kafka',
-    icon: '/DevDocs/ico/kafka.svg',
-    href: '/DevDocs/kafka',
-    new: true
-  },
-  {
-    name: 'Docker',
-    icon: '/DevDocs/ico/docker.svg',
-    href: '/DevDocs/docker',
-    new: true
-  },
-  {
-    name: 'Kubernetes',
-    icon: '/DevDocs/ico/kubernetes.svg',
-    href: '/DevDocs/kubernetes',
-    new: true
-  }
-]
-
+const listButton = {
+  frontend: [
+    { name: 'React', icon: '/DevDocs/ico/react.svg', href: '/DevDocs/react', new: false },
+    { name: 'Angular', icon: '/DevDocs/ico/angular.svg', href: '/DevDocs/angular', new: false },
+    { name: 'Astro', icon: '/DevDocs/ico/astro.svg', href: '/DevDocs/astro', new: false },
+    { name: 'Bootstrap', icon: '/DevDocs/ico/bootstrap.svg', href: '/DevDocs/bootstrap', new: false },
+    { name: 'Tailwind CSS', icon: '/DevDocs/ico/tailwindcss.svg', href: '/DevDocs/tailwindcss', new: false },
+    { name: 'Sass', icon: '/DevDocs/ico/sass.svg', href: '/DevDocs/sass', new: false },
+    { name: 'TypeScript', icon: '/DevDocs/ico/typescript.svg', href: '/DevDocs/typescript', new: false }
+  ],
+  backend: [
+    { name: 'Spring Boot', icon: '/DevDocs/ico/spring-boot.svg', href: '/DevDocs/spring-boot', new: false },
+    { name: 'Jakarta EE', icon: '/DevDocs/ico/jakartaee.svg', href: '/DevDocs/jakarta-ee', new: true },
+    { name: 'Apache Commons', icon: '/DevDocs/ico/apache_commons.svg', href: '/DevDocs/Apache-Commons', new: true },
+    { name: 'Apache POI', icon: '/DevDocs/ico/apache_poi.svg', href: '/DevDocs/Apache-POI', new: true },
+    { name: 'Thymeleaf', icon: '/DevDocs/ico/thymeleaf.svg', href: '/DevDocs/thymeleaf', new: false }
+  ],
+  devops: [
+    { name: 'Bash Scripting', icon: '/DevDocs/ico/bash.svg', href: '/DevDocs/bash', new: true },
+    { name: 'Jenkins', icon: '/DevDocs/ico/jenkins.svg', href: '/DevDocs/jenkins', new: true },
+    { name: 'Kafka', icon: '/DevDocs/ico/kafka.svg', href: '/DevDocs/kafka', new: true },
+    { name: 'Docker', icon: '/DevDocs/ico/docker.svg', href: '/DevDocs/docker', new: true },
+    { name: 'Kubernetes', icon: '/DevDocs/ico/kubernetes.svg', href: '/DevDocs/kubernetes', new: true }
+  ]
+}
 ---
 
 <aside id="logo-sidebar" class="fixed top-0 left-0 z-40 w-72 h-screen pt-24 transition-transform -translate-x-full bg-white border-r border-gray-200 sm:translate-x-0 dark:bg-gray-800 dark:border-gray-700" aria-label="Sidebar">
   <div class="h-full px-3 pb-4 overflow-y-auto bg-white dark:bg-gray-800">
-     <ul class="space-y-2 font-medium">
-        {
-          listButton.map((button) => (
-            <li>
-              <a href={button.href} class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-                <img src={button.icon} alt={`${button.name} icon`} class="w-5 h-5" />
-                <span class="ms-3">{ button.name }</span>
-                {button.new && <span class="ms-auto px-2 text-center text-xs text-white bg-red-500 rounded-full font-bold uppercase animate-pulse">New</span>}
-              </a>
-            </li>
-          ))
-        }
-     </ul>
+    <ul class="space-y-4 font-medium">
+      {/* Botón de Inicio */}
+      <li>
+        <a href="/DevDocs/home" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+          <img src="/DevDocs/ico/home.svg" alt="Inicio icon" class="w-5 h-5" />
+          <span class="ms-3">Inicio</span>
+        </a>
+      </li>
+
+      {/* Categorías (Frontend, Backend, DevOps) */}
+      {['frontend', 'backend', 'devops'].map((category, index) => (
+        <Fragment key={index}>
+          <li>
+            <button type="button" class="flex items-center w-full p-2 text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700" aria-controls={`dropdown-${category}`} data-collapse-toggle={`dropdown-${category}`}>
+              {category === 'frontend' && (
+                <img src="/DevDocs/img/frontend.png" alt="frontend icon" class="w-5 h-5" />
+              )}
+              {category === 'backend' && (
+                <img src="/DevDocs/img/backend.png" alt="backend icon" class="w-5 h-5" />
+              )}
+              {category === 'devops' && (
+                <img src="/DevDocs/img/devops.png" alt="devops icon" class="w-5 h-5" />
+              )}
+              <span class="flex-1 ms-3 text-left rtl:text-right whitespace-nowrap">{category.charAt(0).toUpperCase() + category.slice(1)}</span>
+              <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
+              </svg>
+            </button>
+            <ul id={`dropdown-${category}`} class="hidden py-2 space-y-2">
+              {listButton[category].map((button) => (
+                <Fragment key={button.name}>
+                  <a href={button.href} class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">
+                    <img src={button.icon} alt={`${button.name} icon`} class="w-5 h-5" />
+                    <span class="ml-3">{button.name}</span>
+                    {button.new && (
+                      <span class="ml-auto px-2 text-center text-xs text-white bg-red-500 rounded-full font-bold uppercase animate-pulse">
+                        New
+                      </span>
+                    )}
+                  </a>
+                </Fragment>
+              ))}
+            </ul>
+          </li>
+        </Fragment>
+      ))}
+    </ul>
   </div>
 </aside>
