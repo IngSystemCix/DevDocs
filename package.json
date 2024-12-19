@@ -22,6 +22,7 @@
     "firebase-admin": "^12.6.0",
     "flowbite": "^2.5.1",
     "react": "^18.3.1",
+    "react-copy-to-clipboard": "^5.1.0",
     "react-dom": "^18.3.1",
     "react-syntax-highlighter": "^15.5.0",
     "tailwindcss": "^3.4.13",
@@ -29,6 +30,7 @@
   },
   "devDependencies": {
     "@types/node": "^22.7.2",
+    "@types/react-copy-to-clipboard": "^5.0.7",
     "@types/react-syntax-highlighter": "^15.5.13"
   }
 }

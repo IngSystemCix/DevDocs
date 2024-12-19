@@ -18,34 +18,34 @@ import CodeComponent from "../../../react/CodeComponent";
     <div class="space-y-4 text-white">
       <h2 class="text-2xl font-semibold text-blue-500">1. Expresiones ${}</h2>
       <p>Las expresiones <code class="bg-slate-700 px-1 py-1/2 rounded-lg">${}</code> permiten acceder a variables del modelo. Son útiles para mostrar datos dinámicos en las plantillas HTML.</p>
-      <CodeComponent codeString={`
+      <CodeComponent  client:load codeString={`
 <p th:text="\${nombre}">Nombre por defecto</p>
       `} language="html" />
       <p><strong>Explicación:</strong> En este ejemplo, el valor de la variable <code class="bg-slate-700 px-1 py-1/2 rounded-lg">nombre</code> se sustituirá en el elemento <code>p</code>. Si la variable tiene el valor "Juan", el HTML final será:</p>
-      <CodeComponent codeString={`
+      <CodeComponent  client:load codeString={`
 <p>Juan</p>
       `} language="html" />
 
       <h2 class="text-2xl font-semibold text-blue-500">2. Expresiones #{}</h2>
       <p>Las expresiones <code class="bg-slate-700 px-1 py-1/2 rounded-lg">#{}</code> se utilizan para acceder a mensajes de internacionalización en archivos de propiedades.</p>
-      <CodeComponent codeString={`
+      <CodeComponent  client:load codeString={`
 <p th:text="#{mensaje.bienvenida}">Bienvenida por defecto</p>
       `} language="html" />
       <p><strong>Explicación:</strong> Aquí, la expresión <code class="bg-slate-700 px-1 py-1/2 rounded-lg">{`#{mensaje.bienvenida}`}</code> busca la clave <code>mensaje.bienvenida</code> en un archivo de propiedades (por ejemplo, <code>messages.properties</code>). El texto en ese archivo reemplaza la expresión en el HTML.</p>
 
       <h2 class="text-2xl font-semibold text-blue-500">3. Expresiones @{}</h2>
       <p>Las expresiones <code class="bg-slate-700 px-1 py-1/2 rounded-lg">@{}</code> permiten generar URLs dinámicas dentro de las plantillas Thymeleaf. Se pueden incluir rutas y parámetros.</p>
-      <CodeComponent codeString={`
+      <CodeComponent  client:load codeString={`
 <a th:href="@{/usuarios}">Ver Usuarios</a>
       `} language="html" />
       <p><strong>Explicación:</strong> En este caso, <code class="bg-slate-700 px-1 py-1/2 rounded-lg">{`@{/usuarios}`}</code> genera dinámicamente la URL para el enlace. Si la aplicación está desplegada en <code>http://localhost:8080</code>, el HTML generado sería:</p>
-      <CodeComponent codeString={`
+      <CodeComponent  client:load codeString={`
 <a href="/usuarios">Ver Usuarios</a>
       `} language="html" />
 
       <h2 class="text-2xl font-semibold text-blue-500">Ejemplo Completo</h2>
       <p>A continuación se muestra un ejemplo que utiliza las tres expresiones (${}, #{}, y @{}) juntas:</p>
-      <CodeComponent codeString={`
+      <CodeComponent  client:load codeString={`
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>

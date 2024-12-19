@@ -31,7 +31,7 @@ import CodeComponent from "../../../react/CodeComponent";
     <li>
         Agregar la dependencia de Thymeleaf en el archivo 
         <code class="bg-slate-700 px-1 py-1/2 rounded-lg">pom.xml</code>:
-        <CodeComponent codeString={`
+        <CodeComponent  client:load codeString={`
 <dependency>
   <groupId>org.springframework.boot</groupId>
   <artifactId>spring-boot-starter-thymeleaf</artifactId>
@@ -46,7 +46,7 @@ import CodeComponent from "../../../react/CodeComponent";
     <li>
         Crear un controlador para manejar las solicitudes HTTP. Por ejemplo, puedes crear 
         un controlador que devuelva la plantilla <code class="bg-slate-700 px-1 py-1/2 rounded-lg">index.html</code>:
-        <CodeComponent codeString={`
+        <CodeComponent  client:load codeString={`
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -64,7 +64,7 @@ public class HomeController {
     </li>
     <li>
         Aquí tienes un ejemplo simple de una plantilla Thymeleaf <code class="bg-slate-700 px-1 py-1/2 rounded-lg">index.html</code>:
-        <CodeComponent codeString={`
+        <CodeComponent  client:load codeString={`
 <!DOCTYPE html>
 <html xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
@@ -80,7 +80,7 @@ public class HomeController {
     </li>
     <li>
         Iniciar la aplicación: Ejecuta la aplicación Spring Boot. Puedes hacerlo desde tu IDE o usando el comando Maven:
-        <CodeComponent codeString={`
+        <CodeComponent  client:load codeString={`
 mvn spring-boot:run
         `} language="bash"/>
     </li>
