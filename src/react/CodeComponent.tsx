@@ -22,7 +22,6 @@ const CodeComponent: React.FC<CodeComponentProps> = ({
   const selectedStyle = style === "solarizedlight" ? solarizedlight : dracula;
 
   const handleCopy = () => {
-    console.log("Copying to clipboard...");
     setCopied(true);
     setTimeout(() => setCopied(false), 3000);
   };
@@ -34,7 +33,7 @@ const CodeComponent: React.FC<CodeComponentProps> = ({
           {codeString.trim()}
         </SyntaxHighlighter>
 
-        <CopyToClipboard text={codeString} onCopy={handleCopy}>
+        <CopyToClipboard text={codeString.trim()} onCopy={handleCopy}>
           <button
             className="absolute z-50 top-2 right-2 px-3 py-2 bg-gray-800 text-white rounded-md hover:bg-gray-600"
             aria-label="Copy code"
