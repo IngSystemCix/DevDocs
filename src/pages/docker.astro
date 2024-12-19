@@ -1,0 +1,102 @@
+---
+import Layout from "../layout/Layout.astro";
+import Navbar from "../component/Navbar.astro";
+import Sidebar from "../component/Sidebar.astro";
+import Breadcrumb from "../component/Breadcrumb.astro";
+import Accordion from "../component/Accordion.astro";
+
+const temarioDocker = [
+  {
+    title: "Introducción a Docker",
+    content: [
+      { name: "¿Qué es Docker?", link: "#" },
+      { name: "Historia y propósito", link: "#" },
+      { name: "Ventajas de usar Docker", link: "#" }
+    ],
+  },
+  {
+    title: "Conceptos Fundamentales",
+    content: [
+      { name: "Imágenes", link: "#" },
+      { name: "Contenedores", link: "#" },
+      { name: "Dockerfile", link: "#" },
+      { name: "Registros de imágenes (Docker Hub)", link: "#" }
+    ],
+  },
+  {
+    title: "Instalación y Configuración",
+    content: [
+      { name: "Instalación de Docker en diferentes sistemas", link: "#" },
+      { name: "Configuración inicial", link: "#" },
+      { name: "Verificación de la instalación", link: "#" }
+    ],
+  },
+  {
+    title: "Creación y Gestión de Contenedores",
+    content: [
+      { name: "Creación de contenedores", link: "#" },
+      { name: "Gestión de contenedores", link: "#" },
+      { name: "Persistencia de datos con volúmenes", link: "#" }
+    ],
+  },
+  {
+    title: "Docker Compose",
+    content: [
+      { name: "Introducción a Docker Compose", link: "#" },
+      { name: "Definición de servicios en un archivo YAML", link: "#" },
+      { name: "Ejecución y gestión de aplicaciones multi-contenedor", link: "#" }
+    ],
+  },
+  {
+    title: "Networking en Docker",
+    content: [
+      { name: "Introducción a redes en Docker", link: "#" },
+      { name: "Tipos de redes (bridge, host, none)", link: "#" },
+      { name: "Conexión de contenedores a redes", link: "#" }
+    ],
+  },
+  {
+    title: "Seguridad en Docker",
+    content: [
+      { name: "Prácticas recomendadas de seguridad", link: "#" },
+      { name: "Control de acceso", link: "#" },
+      { name: "Escaneo de vulnerabilidades en imágenes", link: "#" }
+    ],
+  },
+  {
+    title: "Optimización y Mejores Prácticas",
+    content: [
+      { name: "Optimización de imágenes Docker", link: "#" },
+      { name: "Gestión eficiente de recursos", link: "#" },
+      { name: "Buenas prácticas para producción", link: "#" }
+    ],
+  },
+  {
+    title: "Casos de Uso y Herramientas Complementarias",
+    content: [
+      { name: "Uso de Docker en desarrollo", link: "#" },
+      { name: "Integración con CI/CD", link: "#" },
+      { name: "Herramientas adicionales (Kubernetes, Portainer)", link: "#" }
+    ],
+  },
+  {
+    title: "Recursos Adicionales",
+    content: [
+      { name: "Documentación oficial de Docker", link: "https://docs.docker.com/" },
+      { name: "Tutoriales y ejemplos", link: "#" },
+      { name: "Comunidad y soporte", link: "#" }
+    ],
+  }
+];
+---
+
+<Layout title="DevDocs :: Docker">
+  <Navbar />
+  <Sidebar />
+  <div class="py-32 px-10 md:px-20 md:py-32 sm:ml-72">
+    <Breadcrumb links={[{ href: "/DevDocs/home", label: "Home" }, { label: "Docker", current: true }]} />
+    <br>
+    <br>
+    <Accordion temario={temarioDocker} />
+  </div>
+</Layout>

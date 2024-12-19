@@ -1,0 +1,102 @@
+---
+import Layout from "../layout/Layout.astro";
+import Navbar from "../component/Navbar.astro";
+import Sidebar from "../component/Sidebar.astro";
+import Breadcrumb from "../component/Breadcrumb.astro";
+import Accordion from "../component/Accordion.astro";
+
+const temarioKafka = [
+  {
+    title: "Introducción a Apache Kafka",
+    content: [
+      { name: "¿Qué es Apache Kafka?", link: "#" },
+      { name: "Historia y propósito", link: "#" },
+      { name: "Arquitectura básica de Kafka", link: "#" }
+    ],
+  },
+  {
+    title: "Componentes de Kafka",
+    content: [
+      { name: "Brokers", link: "#" },
+      { name: "Topics", link: "#" },
+      { name: "Producers y Consumers", link: "#" },
+      { name: "ZooKeeper y su rol", link: "#" }
+    ],
+  },
+  {
+    title: "Configuración y Deploy",
+    content: [
+      { name: "Instalación de Kafka", link: "#" },
+      { name: "Configuración de Brokers", link: "#" },
+      { name: "Despliegue en clúster", link: "#" }
+    ],
+  },
+  {
+    title: "Producers y Consumers",
+    content: [
+      { name: "Creación de Producers", link: "#" },
+      { name: "Creación de Consumers", link: "#" },
+      { name: "Consumidores en grupo (Consumer Groups)", link: "#" }
+    ],
+  },
+  {
+    title: "Procesamiento de Datos con Kafka Streams",
+    content: [
+      { name: "Introducción a Kafka Streams", link: "#" },
+      { name: "Creación de aplicaciones con Streams", link: "#" },
+      { name: "Procesamiento de eventos en tiempo real", link: "#" }
+    ],
+  },
+  {
+    title: "Seguridad en Kafka",
+    content: [
+      { name: "Autenticación y autorización", link: "#" },
+      { name: "Cifrado de datos en tránsito", link: "#" },
+      { name: "Gestión de permisos", link: "#" }
+    ],
+  },
+  {
+    title: "Integración con otras herramientas",
+    content: [
+      { name: "Conectores de Kafka Connect", link: "#" },
+      { name: "Integración con bases de datos", link: "#" },
+      { name: "Integración con Hadoop y Spark", link: "#" }
+    ],
+  },
+  {
+    title: "Monitoreo y Optimización",
+    content: [
+      { name: "Herramientas de monitoreo", link: "#" },
+      { name: "Optimización de rendimiento", link: "#" },
+      { name: "Gestión de logs y métricas", link: "#" }
+    ],
+  },
+  {
+    title: "Buenas Prácticas y Casos de Uso",
+    content: [
+      { name: "Buenas prácticas en producción", link: "#" },
+      { name: "Casos de uso populares", link: "#" },
+      { name: "Patrones de diseño con Kafka", link: "#" }
+    ],
+  },
+  {
+    title: "Recursos Adicionales",
+    content: [
+      { name: "Documentación oficial de Kafka", link: "https://kafka.apache.org/documentation/" },
+      { name: "Tutoriales y ejemplos", link: "#" },
+      { name: "Comunidad y soporte", link: "#" }
+    ],
+  }
+];
+---
+
+<Layout title="DevDocs :: Apache Kafka">
+  <Navbar />
+  <Sidebar />
+  <div class="py-32 px-10 md:px-20 md:py-32 sm:ml-72">
+    <Breadcrumb links={[{ href: "/DevDocs/home", label: "Home" }, { label: "Apache Kafka", current: true }]} />
+    <br>
+    <br>
+    <Accordion temario={temarioKafka} />
+  </div>
+</Layout>

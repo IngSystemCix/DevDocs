@@ -1,0 +1,103 @@
+---
+import Layout from "../layout/Layout.astro";
+import Navbar from "../component/Navbar.astro";
+import Sidebar from "../component/Sidebar.astro";
+import Breadcrumb from "../component/Breadcrumb.astro";
+import Accordion from "../component/Accordion.astro";
+
+const temarioKubernetes = [
+  {
+    title: "Introducción a Kubernetes",
+    content: [
+      { name: "¿Qué es Kubernetes?", link: "#" },
+      { name: "Historia y propósito", link: "#" },
+      { name: "Ventajas de Kubernetes", link: "#" }
+    ],
+  },
+  {
+    title: "Arquitectura de Kubernetes",
+    content: [
+      { name: "Componentes principales", link: "#" },
+      { name: "Nodo maestro y nodos de trabajo", link: "#" },
+      { name: "API Server, Scheduler, y Controller Manager", link: "#" },
+      { name: "Kubelet y Kube-proxy", link: "#" }
+    ],
+  },
+  {
+    title: "Instalación y Configuración",
+    content: [
+      { name: "Instalación de Kubernetes en diferentes plataformas", link: "#" },
+      { name: "Configuración inicial del clúster", link: "#" },
+      { name: "Herramientas de administración (kubectl, kubeadm)", link: "#" }
+    ],
+  },
+  {
+    title: "Conceptos Fundamentales",
+    content: [
+      { name: "Pods", link: "#" },
+      { name: "ReplicaSets", link: "#" },
+      { name: "Deployments", link: "#" },
+      { name: "Namespaces", link: "#" }
+    ],
+  },
+  {
+    title: "Networking en Kubernetes",
+    content: [
+      { name: "Introducción a redes en Kubernetes", link: "#" },
+      { name: "Servicios (ClusterIP, NodePort, LoadBalancer)", link: "#" },
+      { name: "Ingress y controladores de Ingress", link: "#" }
+    ],
+  },
+  {
+    title: "Almacenamiento en Kubernetes",
+    content: [
+      { name: "Volúmenes y Persistencia", link: "#" },
+      { name: "PersistentVolume y PersistentVolumeClaim", link: "#" },
+      { name: "Storage Classes", link: "#" }
+    ],
+  },
+  {
+    title: "Escalabilidad y Alta Disponibilidad",
+    content: [
+      { name: "Autoscaling", link: "#" },
+      { name: "Rolling Updates y Rollbacks", link: "#" },
+      { name: "Clústeres de alta disponibilidad", link: "#" }
+    ],
+  },
+  {
+    title: "Seguridad en Kubernetes",
+    content: [
+      { name: "Control de acceso basado en roles (RBAC)", link: "#" },
+      { name: "Políticas de red", link: "#" },
+      { name: "Secretos y ConfigMaps", link: "#" }
+    ],
+  },
+  {
+    title: "Integración y Ecosistema",
+    content: [
+      { name: "Integración con herramientas CI/CD", link: "#" },
+      { name: "Uso de Helm para la gestión de aplicaciones", link: "#" },
+      { name: "Monitorización con Prometheus y Grafana", link: "#" }
+    ],
+  },
+  {
+    title: "Recursos Adicionales",
+    content: [
+      { name: "Documentación oficial de Kubernetes", link: "https://kubernetes.io/docs/" },
+      { name: "Tutoriales y ejemplos", link: "#" },
+      { name: "Comunidad y soporte", link: "#" }
+    ],
+  }
+];
+---
+
+<Layout title="DevDocs :: Kubernetes">
+  <Navbar />
+  <Sidebar />
+  <div class="py-32 px-10 md:px-20 md:py-32 sm:ml-72">
+    <Breadcrumb links={[{ href: "/DevDocs/home", label: "Home" }, { label: "Kubernetes", current: true }]} />
+    <br>
+    <br>
+    <Accordion temario={temarioKubernetes} />
+  </div>
+</Layout>
